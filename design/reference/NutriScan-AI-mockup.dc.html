@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/plenty-design-system-a440a4ec-5d76-46b2-a2a6-1072130c1411/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/plenty-design-system-a440a4ec-5d76-46b2-a2a6-1072130c1411/tokens/colors.css">
+<link rel="stylesheet" href="_ds/plenty-design-system-a440a4ec-5d76-46b2-a2a6-1072130c1411/tokens/typography.css">
+<link rel="stylesheet" href="_ds/plenty-design-system-a440a4ec-5d76-46b2-a2a6-1072130c1411/tokens/spacing.css">
+<style>
+:root{
+  --ns-canvas:#dde4ee; --ns-page:#EFF3F9; --ns-card:#FFFFFF; --ns-card-2:#F4F8FD;
+  --ns-ink:#0F1A2B; --ns-ink-2:#566175; --ns-ink-3:#8C99AC;
+  --ns-line:#E7ECF4; --ns-line-2:#D8E0EC;
+  --ns-brand:#2563EB; --ns-brand-2:#1A49C2; --ns-brand-soft:#E8F0FE; --ns-on-brand:#FFFFFF;
+  --good:#10B981; --good-soft:#E4F7EF; --caution:#F59E0B; --caution-soft:#FCF1DC; --bad:#F43F5E; --bad-soft:#FDE7EB;
+  --track:#E9EFF7;
+  --shadow-card:0 1px 2px rgba(15,26,43,.05),0 8px 22px rgba(15,26,43,.06);
+  --shadow-pop:0 18px 60px rgba(15,26,43,.22);
+  --hero:linear-gradient(155deg,#2F6FED 0%,#1E50C8 58%,#1B3FA8 100%);
+}
+[data-theme="dark"]{
+  --ns-canvas:#05080f; --ns-page:#0B1320; --ns-card:#141E30; --ns-card-2:#0F1828;
+  --ns-ink:#EAF1FB; --ns-ink-2:#9EB0C8; --ns-ink-3:#6B7C95;
+  --ns-line:#223047; --ns-line-2:#2C3D58;
+  --ns-brand:#5B92FF; --ns-brand-2:#3D78F0; --ns-brand-soft:rgba(91,146,255,.16); --ns-on-brand:#07101f;
+  --good:#34D399; --good-soft:rgba(52,211,153,.15); --caution:#FBBF24; --caution-soft:rgba(251,191,36,.15); --bad:#FB7185; --bad-soft:rgba(251,113,133,.17);
+  --track:#1E2A3E;
+  --shadow-card:0 1px 2px rgba(0,0,0,.4),0 10px 28px rgba(0,0,0,.4);
+  --shadow-pop:0 22px 64px rgba(0,0,0,.6);
+  --hero:linear-gradient(155deg,#2F6FED 0%,#1E3F9E 60%,#15265F 100%);
+}
+*{box-sizing:border-box;}
+*::-webkit-scrollbar{width:0;height:0;}
+body{margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;}
+@keyframes nsScan{0%{transform:translateY(-92px);opacity:.2}50%{opacity:1}100%{transform:translateY(92px);opacity:.2}}
+@keyframes nsPulse{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes nsRise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+
+<div data-theme="{{ theme }}" style="min-height:100vh;width:100%;background:var(--ns-canvas);display:flex;align-items:center;justify-content:center;gap:26px;padding:40px 24px;font-family:'Plus Jakarta Sans',sans-serif;">
+
+  <div style="position:relative;width:392px;height:840px;background:#0a0e16;border-radius:48px;padding:7px;box-shadow:var(--shadow-pop);flex:none;">
+    <div style="position:relative;width:100%;height:100%;border-radius:42px;overflow:hidden;background:var(--ns-page);--bar:{{ barColor }};">
+
+      <!-- ============ STATUS BAR ============ -->
+      <div style="position:absolute;top:0;left:0;right:0;height:46px;display:flex;align-items:center;justify-content:space-between;padding:14px 26px 0;z-index:60;color:var(--bar,var(--ns-ink));pointer-events:none;">
+        <span style="font-size:14px;font-weight:700;letter-spacing:-.01em;">9:41</span>
+        <div style="display:flex;align-items:center;gap:7px;">
+          <svg width="18" height="13" viewBox="0 0 18 13" fill="currentColor"><rect x="0" y="8" width="3" height="5" rx="1"/><rect x="5" y="5" width="3" height="8" rx="1"/><rect x="10" y="2.5" width="3" height="10.5" rx="1"/><rect x="15" y="0" width="3" height="13" rx="1" opacity=".4"/></svg>
+          <svg width="17" height="13" viewBox="0 0 17 13" fill="currentColor"><path d="M8.5 2.5c2.6 0 5 1 6.8 2.7l1.2-1.3A11 11 0 0 0 8.5.5 11 11 0 0 0 .5 3.9l1.2 1.3A9.6 9.6 0 0 1 8.5 2.5Z"/><path d="M8.5 6.3c1.5 0 3 .6 4 1.7l1.3-1.3a7.4 7.4 0 0 0-10.6 0L4.5 8a5.6 5.6 0 0 1 4-1.7Z"/><circle cx="8.5" cy="11" r="1.6"/></svg>
+          <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="1" y="1" width="21" height="11" rx="3" stroke="currentColor" stroke-width="1.2" opacity=".5"/><rect x="3" y="3" width="16" height="7" rx="1.5" fill="currentColor"/><rect x="23.5" y="4" width="2" height="5" rx="1" fill="currentColor" opacity=".6"/></svg>
+        </div>
+      </div>
+
+      <!-- ============ SPLASH ============ -->
+      <sc-if value="{{ isSplash }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute;inset:0;background:var(--hero);color:#fff;display:flex;flex-direction:column;padding:96px 30px 34px;overflow:hidden;">
+        <div style="position:absolute;top:-90px;right:-70px;width:240px;height:240px;border-radius:50%;background:rgba(255,255,255,.08);"></div>
+        <div style="position:absolute;bottom:120px;left:-80px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.06);"></div>
+        <div style="position:relative;display:flex;align-items:center;gap:13px;">
+          <div style="width:60px;height:60px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(0,0,0,.18);">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#1E50C8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M11.5 16.5C9 16 7.5 14 7.5 11.5c0-3 2.5-4.5 8-4.5 0 4-2 7.5-4 9Z" fill="#10B981" stroke="#10B981"/></svg>
+          </div>
+          <div>
+            <div style="font-size:25px;font-weight:800;letter-spacing:-.03em;line-height:1;">NutriScan AI</div>
+            <div style="font-size:13px;opacity:.82;margin-top:4px;font-weight:500;">Smart food health analyzer</div>
+          </div>
+        </div>
+        <div style="margin-top:40px;font-size:34px;font-weight:800;letter-spacing:-.03em;line-height:1.12;">Scan it.<br>Know if it's<br>good for you.</div>
+        <div style="margin-top:14px;font-size:15px;opacity:.85;line-height:1.5;max-width:280px;">Point your camera at any packet. Get a clear health verdict — and the reasons why — in seconds.</div>
+        <div style="flex:1;"></div>
+        <div style="display:flex;flex-direction:column;gap:14px;margin-bottom:26px;">
+          <div style="display:flex;align-items:center;gap:13px;"><div style="width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9v6M10 9v6M13 9v6M17 9v6"/></svg></div><div style="font-size:14px;font-weight:600;">Scan barcodes &amp; nutrition labels</div></div>
+          <div style="display:flex;align-items:center;gap:13px;"><div style="width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M3 12h18" opacity="0"/><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div style="font-size:14px;font-weight:600;">Transparent 0–10 health score</div></div>
+          <div style="display:flex;align-items:center;gap:13px;"><div style="width:42px;height:42px;border-radius:12px;background:rgba(255,255,255,.16);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14M5 12h14M5 19h9"/></svg></div><div style="font-size:14px;font-weight:600;">Track every scan over time</div></div>
+        </div>
+        <button onClick="{{ goOnboard }}" style="width:100%;height:56px;border-radius:16px;background:#fff;color:#1E50C8;font-size:16px;font-weight:700;border:none;cursor:pointer;box-shadow:0 10px 24px rgba(0,0,0,.16);">Get started</button>
+      </div>
+      </sc-if>
+
+      <!-- ============ ONBOARDING ============ -->
+      <sc-if value="{{ isOnboard }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;background:var(--ns-page);display:flex;flex-direction:column;padding:56px 28px 30px;">
+        <div style="display:flex;justify-content:flex-end;">
+          <button onClick="{{ goAuth }}" style="background:none;border:none;cursor:pointer;font-size:14px;font-weight:600;color:var(--ns-ink-3);padding:6px;">Skip</button>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;">
+          <div style="width:128px;height:128px;border-radius:36px;background:{{ onb.soft }};display:flex;align-items:center;justify-content:center;color:{{ onb.col }};margin-bottom:34px;"><svg width="58" height="58" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="{{ onb.glyph }}"/></svg></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:12px;width:100%;">
+            <div style="font-size:25px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;line-height:1.2;white-space:nowrap;">{{ onb.title }}</div>
+            <div style="font-size:15px;color:var(--ns-ink-2);line-height:1.55;max-width:300px;">{{ onb.body }}</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:7px;margin-bottom:26px;">
+          <div style="height:7px;border-radius:999px;transition:all .2s;width:{{ onbDot0.w }};background:{{ onbDot0.bg }};"></div>
+          <div style="height:7px;border-radius:999px;transition:all .2s;width:{{ onbDot1.w }};background:{{ onbDot1.bg }};"></div>
+          <div style="height:7px;border-radius:999px;transition:all .2s;width:{{ onbDot2.w }};background:{{ onbDot2.bg }};"></div>
+        </div>
+        <button onClick="{{ onbNext }}" style="width:100%;height:56px;border-radius:16px;background:var(--ns-brand);border:none;color:var(--ns-on-brand);font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 8px 20px rgba(37,111,237,.28);">{{ onbCta }}</button>
+      </div>
+      </sc-if>
+
+      <!-- ============ AUTH ============ -->
+      <sc-if value="{{ isAuth }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:70px 24px 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;gap:11px;margin-bottom:24px;">
+          <div style="width:46px;height:46px;border-radius:14px;background:var(--hero);display:flex;align-items:center;justify-content:center;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M11.5 16.5C9 16 7.5 14 7.5 11.5c0-3 2.5-4.5 8-4.5 0 4-2 7.5-4 9Z" fill="#fff"/></svg>
+          </div>
+          <div style="font-size:20px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">NutriScan AI</div>
+        </div>
+        <div style="font-size:25px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">{{ authTitle }}</div>
+        <div style="font-size:14px;color:var(--ns-ink-2);margin-top:5px;margin-bottom:22px;">{{ authSub }}</div>
+
+        <div style="display:flex;gap:6px;background:var(--ns-card-2);border:1px solid var(--ns-line);border-radius:14px;padding:5px;margin-bottom:22px;">
+          <button onClick="{{ setLogin }}" style="flex:1;height:40px;border-radius:10px;border:none;cursor:pointer;font-size:14px;font-weight:700;background:{{ tabLoginBg }};color:{{ tabLoginFg }};box-shadow:{{ tabLoginSh }};">Login</button>
+          <button onClick="{{ setRegister }}" style="flex:1;height:40px;border-radius:10px;border:none;cursor:pointer;font-size:14px;font-weight:700;background:{{ tabRegBg }};color:{{ tabRegFg }};box-shadow:{{ tabRegSh }};">Register</button>
+        </div>
+
+        <sc-if value="{{ authRegister }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-bottom:14px;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Full name</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 16px;color:var(--ns-ink-3);font-size:15px;">John Doe</div></div>
+        </sc-if>
+        <div style="margin-bottom:14px;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Email</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 16px;color:var(--ns-ink);font-size:15px;">john.doe@email.com</div></div>
+        <div style="margin-bottom:8px;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Password</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:var(--ns-ink);font-size:15px;">••••••••<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div></div>
+        <sc-if value="{{ authLogin }}" hint-placeholder-val="{{ true }}">
+        <div style="text-align:right;font-size:13px;font-weight:600;color:var(--ns-brand);margin-bottom:22px;">Forgot password?</div>
+        </sc-if>
+        <sc-if value="{{ authRegister }}" hint-placeholder-val="{{ false }}"><div style="height:14px;"></div></sc-if>
+
+        <button onClick="{{ goHome }}" style="width:100%;height:54px;border-radius:15px;background:var(--ns-brand);color:var(--ns-on-brand);font-size:16px;font-weight:700;border:none;cursor:pointer;box-shadow:0 8px 20px rgba(37,111,237,.28);">{{ authCta }}</button>
+        <div style="display:flex;align-items:center;gap:12px;margin:20px 0;"><div style="flex:1;height:1px;background:var(--ns-line);"></div><div style="font-size:12px;color:var(--ns-ink-3);">or</div><div style="flex:1;height:1px;background:var(--ns-line);"></div></div>
+        <button onClick="{{ goHome }}" style="width:100%;height:52px;border-radius:15px;background:var(--ns-card);color:var(--ns-ink);font-size:15px;font-weight:600;border:1.5px solid var(--ns-line-2);cursor:pointer;">Continue as guest</button>
+      </div>
+      </sc-if>
+
+      <!-- ============ HOME ============ -->
+      <sc-if value="{{ isHome }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding-bottom:96px;background:var(--ns-page);">
+        <div style="background:var(--hero);border-radius:0 0 26px 26px;padding:56px 22px 24px;color:#fff;">
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:11px;">
+              <div style="width:44px;height:44px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:16px;">JD</div>
+              <div><div style="font-size:13px;opacity:.8;">Good morning</div><div style="font-size:18px;font-weight:700;letter-spacing:-.01em;">John Doe</div></div>
+            </div>
+            <button onClick="{{ goAlerts }}" style="width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.16);border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;position:relative;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg><span style="position:absolute;top:9px;right:11px;width:8px;height:8px;border-radius:50%;background:#FB7185;border:1.5px solid #2F6FED;"></span></button>
+          </div>
+          <div style="display:flex;gap:11px;margin-top:20px;">
+            <div style="flex:1;background:rgba(255,255,255,.16);border-radius:16px;padding:13px 15px;"><div style="font-size:24px;font-weight:800;letter-spacing:-.02em;">12</div><div style="font-size:12px;opacity:.85;margin-top:1px;">Scans this week</div></div>
+            <div style="flex:1;background:rgba(255,255,255,.16);border-radius:16px;padding:13px 15px;"><div style="font-size:24px;font-weight:800;letter-spacing:-.02em;">7.2<span style="font-size:13px;font-weight:600;opacity:.7;">/10</span></div><div style="font-size:12px;opacity:.85;margin-top:1px;">Avg health score</div></div>
+          </div>
+        </div>
+
+        <div style="padding:18px 20px 0;">
+          <button onClick="{{ goScanner }}" style="width:100%;border:none;cursor:pointer;text-align:left;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:20px;box-shadow:var(--shadow-card);padding:18px;display:flex;align-items:center;gap:15px;">
+            <div style="width:54px;height:54px;border-radius:16px;background:var(--ns-brand);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></div>
+            <div style="flex:1;"><div style="font-size:17px;font-weight:700;color:var(--ns-ink);">Scan a product</div><div style="font-size:13px;color:var(--ns-ink-2);margin-top:2px;">Barcode or nutrition label</div></div>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+
+          <div style="display:flex;justify-content:space-between;margin-top:22px;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:7px;width:64px;"><div style="width:52px;height:52px;border-radius:16px;background:var(--ns-brand-soft);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--ns-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9v6M11 9v6M15 9v6"/></svg></div><div style="font-size:11px;font-weight:600;color:var(--ns-ink-2);">Barcode</div></div>
+            <button onClick="{{ goHistory }}" style="display:flex;flex-direction:column;align-items:center;gap:7px;width:64px;background:none;border:none;cursor:pointer;"><div style="width:52px;height:52px;border-radius:16px;background:var(--good-soft);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--good)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div style="font-size:11px;font-weight:600;color:var(--ns-ink-2);">History</div></button>
+            <button onClick="{{ goInsights }}" style="display:flex;flex-direction:column;align-items:center;gap:7px;width:64px;background:none;border:none;cursor:pointer;"><div style="width:52px;height:52px;border-radius:16px;background:var(--caution-soft);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--caution)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v3M12 9v8M17 6v11"/></svg></div><div style="font-size:11px;font-weight:600;color:var(--ns-ink-2);">Insights</div></button>
+            <button onClick="{{ goBmi }}" style="display:flex;flex-direction:column;align-items:center;gap:7px;width:64px;background:none;border:none;cursor:pointer;"><div style="width:52px;height:52px;border-radius:16px;background:var(--bad-soft);display:flex;align-items:center;justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--bad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div><div style="font-size:11px;font-weight:600;color:var(--ns-ink-2);">Goals</div></button>
+          </div>
+
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-top:24px;margin-bottom:12px;"><div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Recent scans</div><button onClick="{{ goHistory }}" style="background:none;border:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--ns-brand);">View all</button></div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ recent }}" as="it" hint-placeholder-count="3">
+              <button onClick="{{ it.open }}" style="width:100%;text-align:left;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:12px;display:flex;align-items:center;gap:13px;cursor:pointer;">
+                <div style="width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex:none;background:{{ it.av.bg }};color:{{ it.av.fg }};">{{ it.av.t }}</div>
+                <div style="flex:1;min-width:0;"><div style="font-size:15px;font-weight:700;color:var(--ns-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ it.name }}</div><div style="font-size:12px;color:var(--ns-ink-3);margin-top:2px;">{{ it.dateLine }}</div></div>
+                <div style="display:flex;align-items:center;gap:7px;flex:none;"><div style="font-size:13px;font-weight:800;padding:5px 9px;border-radius:9px;color:{{ it.bandCol }};background:{{ it.bandSoft }};">{{ it.score }}</div></div>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ SCANNER ============ -->
+      <sc-if value="{{ isScanner }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;background:#0A0E16;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="position:absolute;inset:0;background:radial-gradient(120% 60% at 50% 38%,#1b2738 0%,#0A0E16 70%);"></div>
+        <div style="position:relative;display:flex;align-items:center;justify-content:space-between;padding:54px 20px 0;color:#fff;">
+          <button onClick="{{ goHome }}" style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+          <div style="font-size:16px;font-weight:700;">Scan food</div>
+          <button style="width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h7l-2 8 9-12h-7l2-8z"/></svg></button>
+        </div>
+
+        <div style="position:relative;flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:0 40px;">
+          <sc-if value="{{ scanBarcode }}" hint-placeholder-val="{{ true }}">
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div style="position:relative;width:248px;height:248px;">
+              <div style="position:absolute;inset:30px;border-radius:18px;background:linear-gradient(160deg,#F6C453,#EA7317);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 16px 40px rgba(0,0,0,.5);">
+                <div style="font-size:13px;font-weight:600;opacity:.85;letter-spacing:.04em;">CLASSIC</div>
+                <div style="font-size:30px;font-weight:800;letter-spacing:-.02em;">Lay's</div>
+                <div style="margin-top:10px;display:flex;gap:2.5px;align-items:flex-end;height:30px;">
+                  <div style="width:2px;height:100%;background:#1a1a1a;"></div><div style="width:3px;height:80%;background:#1a1a1a;"></div><div style="width:2px;height:100%;background:#1a1a1a;"></div><div style="width:4px;height:90%;background:#1a1a1a;"></div><div style="width:2px;height:70%;background:#1a1a1a;"></div><div style="width:3px;height:100%;background:#1a1a1a;"></div><div style="width:2px;height:85%;background:#1a1a1a;"></div><div style="width:4px;height:100%;background:#1a1a1a;"></div><div style="width:2px;height:75%;background:#1a1a1a;"></div><div style="width:3px;height:95%;background:#1a1a1a;"></div>
+                </div>
+              </div>
+              <div style="position:absolute;top:0;left:0;width:42px;height:42px;border-top:3px solid var(--ns-brand);border-left:3px solid var(--ns-brand);border-radius:10px 0 0 0;"></div>
+              <div style="position:absolute;top:0;right:0;width:42px;height:42px;border-top:3px solid var(--ns-brand);border-right:3px solid var(--ns-brand);border-radius:0 10px 0 0;"></div>
+              <div style="position:absolute;bottom:0;left:0;width:42px;height:42px;border-bottom:3px solid var(--ns-brand);border-left:3px solid var(--ns-brand);border-radius:0 0 0 10px;"></div>
+              <div style="position:absolute;bottom:0;right:0;width:42px;height:42px;border-bottom:3px solid var(--ns-brand);border-right:3px solid var(--ns-brand);border-radius:0 0 10px 0;"></div>
+              <div style="position:absolute;top:50%;left:14px;right:14px;height:2.5px;background:linear-gradient(90deg,transparent,var(--ns-brand),transparent);box-shadow:0 0 12px var(--ns-brand);animation:nsScan 2.4s ease-in-out infinite;"></div>
+            </div>
+            <div style="margin-top:20px;display:inline-flex;align-items:center;gap:8px;background:rgba(16,185,129,.16);border:1px solid rgba(16,185,129,.5);color:#34D399;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;">
+              <span style="width:7px;height:7px;border-radius:50%;background:#34D399;animation:nsPulse 1.1s infinite;"></span>Barcode detected — 8901491100013
+            </div>
+          </div>
+          </sc-if>
+          <sc-if value="{{ scanLabel }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;flex-direction:column;align-items:center;">
+            <div style="position:relative;width:228px;">
+              <div style="background:#FBFAF7;border-radius:8px;padding:13px 15px;color:#16110A;box-shadow:0 16px 40px rgba(0,0,0,.55);">
+                <div style="font-size:18px;font-weight:800;letter-spacing:-.01em;border-bottom:4px solid #16110A;padding-bottom:3px;">Nutrition Facts</div>
+                <div style="font-size:10px;color:#5a5247;padding:3px 0;border-bottom:1px solid #16110A;">Per 100 g · serving 70 g</div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;font-weight:700;padding:5px 0;border-bottom:1px solid #d8d0c2;"><span>Energy</span><span>402 kcal</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid #d8d0c2;"><span>Protein</span><span>9 g</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid #d8d0c2;"><span>Total sugars</span><span>3 g</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid #d8d0c2;"><span>Saturated fat</span><span>8 g</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;border-bottom:1px solid #d8d0c2;"><span>Sodium</span><span>1.1 g</span></div>
+                <div style="display:flex;justify-content:space-between;font-size:12px;padding:5px 0;"><span>Dietary fibre</span><span>3 g</span></div>
+              </div>
+              <div style="position:absolute;top:-3px;left:-3px;width:34px;height:34px;border-top:3px solid var(--ns-brand);border-left:3px solid var(--ns-brand);border-radius:8px 0 0 0;"></div>
+              <div style="position:absolute;top:-3px;right:-3px;width:34px;height:34px;border-top:3px solid var(--ns-brand);border-right:3px solid var(--ns-brand);border-radius:0 8px 0 0;"></div>
+              <div style="position:absolute;bottom:-3px;left:-3px;width:34px;height:34px;border-bottom:3px solid var(--ns-brand);border-left:3px solid var(--ns-brand);border-radius:0 0 0 8px;"></div>
+              <div style="position:absolute;bottom:-3px;right:-3px;width:34px;height:34px;border-bottom:3px solid var(--ns-brand);border-right:3px solid var(--ns-brand);border-radius:0 0 8px 0;"></div>
+              <div style="position:absolute;top:50%;left:6px;right:6px;height:2.5px;background:linear-gradient(90deg,transparent,var(--ns-brand),transparent);box-shadow:0 0 12px var(--ns-brand);animation:nsScan 2.4s ease-in-out infinite;"></div>
+            </div>
+            <div style="margin-top:20px;display:inline-flex;align-items:center;gap:8px;background:rgba(91,146,255,.18);border:1px solid rgba(91,146,255,.5);color:#9DBEFF;font-size:13px;font-weight:600;padding:8px 14px;border-radius:999px;">
+              <span style="width:7px;height:7px;border-radius:50%;background:#9DBEFF;animation:nsPulse 1.1s infinite;"></span>Reading label · Google ML Kit OCR
+            </div>
+          </div>
+          </sc-if>
+        </div>
+
+        <div style="position:relative;padding:0 20px 40px;">
+          <div style="display:flex;gap:6px;background:rgba(255,255,255,.1);border-radius:14px;padding:5px;margin-bottom:22px;">
+            <button onClick="{{ setBarcodeMode }}" style="flex:1;height:40px;border-radius:10px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;font-size:13px;font-weight:700;background:{{ modeBar.bg }};color:{{ modeBar.fg }};"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9v6M11 9v6M15 9v6"/></svg>Barcode</button>
+            <button onClick="{{ setLabelMode }}" style="flex:1;height:40px;border-radius:10px;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;font-size:13px;font-weight:700;background:{{ modeLabel.bg }};color:{{ modeLabel.fg }};"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h7"/></svg>Nutrition label</button>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;">
+            <button style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.14);border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-5-5L6 21"/></svg></button>
+            <button onClick="{{ scanShutter }}" style="width:78px;height:78px;border-radius:50%;background:transparent;border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;"><span style="width:78px;height:78px;border-radius:50%;border:4px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;"><span style="width:60px;height:60px;border-radius:50%;background:#fff;"></span></span></button>
+            <button style="width:48px;height:48px;border-radius:14px;background:rgba(255,255,255,.14);border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/></svg></button>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ RESULT ============ -->
+      <sc-if value="{{ isResult }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);--bandCol:{{ sel.bandCol }};--bandSoft:{{ sel.bandSoft }};">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 16px 10px;">
+          <button onClick="{{ goHome }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="flex:1;text-align:center;font-size:16px;font-weight:700;color:var(--ns-ink);white-space:nowrap;">Scan result</div>
+          <button style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m9 13.5 6 3.5M15 7 9 10.5"/></svg></button>
+        </div>
+
+        <div style="padding:0 20px;">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px;">
+            <div style="width:62px;height:62px;border-radius:17px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:24px;flex:none;background:{{ sel.av.bg }};color:{{ sel.av.fg }};">{{ sel.av.t }}</div>
+            <div style="flex:1;min-width:0;"><div style="font-size:19px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">{{ sel.name }}</div><div style="font-size:13px;color:var(--ns-ink-2);margin-top:2px;">{{ sel.brand }} · {{ sel.serving }}</div></div>
+            <div style="display:inline-flex;align-items:center;gap:5px;background:var(--ns-brand-soft);color:var(--ns-brand);font-size:11px;font-weight:700;padding:5px 9px;border-radius:8px;flex:none;">{{ sel.src }}</div>
+          </div>
+
+          <!-- verdict banner -->
+          <div style="background:var(--bandSoft);border:1px solid var(--bandCol);border-radius:20px;padding:18px;display:flex;align-items:center;gap:16px;">
+            <div style="width:70px;height:70px;border-radius:50%;background:var(--ns-card);display:flex;flex-direction:column;align-items:center;justify-content:center;flex:none;box-shadow:var(--shadow-card);"><div style="font-size:24px;font-weight:800;color:var(--bandCol);line-height:1;letter-spacing:-.02em;">{{ sel.score }}</div><div style="font-size:10px;font-weight:600;color:var(--ns-ink-3);">/ 10</div></div>
+            <div style="flex:1;"><div style="font-size:20px;font-weight:800;color:var(--bandCol);letter-spacing:-.02em;">{{ sel.bandLabel }}</div><div style="font-size:13px;color:var(--ns-ink-2);margin-top:2px;line-height:1.4;">{{ sel.bandMsg }}</div></div>
+          </div>
+
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);margin:22px 0 4px;">Nutrition at a glance</div>
+          <div style="font-size:12px;color:var(--ns-ink-3);margin-bottom:14px;">Traffic-light rating · per 100g</div>
+
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);padding:6px 16px;">
+            <sc-for list="{{ sel.nutrients }}" as="nt" hint-placeholder-count="6">
+              <div style="padding:13px 0;border-bottom:1px solid var(--ns-line);">
+                <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;">
+                  <div style="display:flex;align-items:center;gap:9px;"><span style="width:10px;height:10px;border-radius:50%;background:{{ nt.dot }};"></span><span style="font-size:14px;font-weight:600;color:var(--ns-ink);">{{ nt.label }}</span></div>
+                  <div style="display:flex;align-items:center;gap:10px;"><span style="font-size:14px;font-weight:700;color:var(--ns-ink);">{{ nt.val }}{{ nt.unit }}</span><span style="font-size:11px;font-weight:700;padding:3px 8px;border-radius:7px;color:{{ nt.tagCol }};background:{{ nt.tagSoft }};min-width:62px;text-align:center;">{{ nt.tag }}</span></div>
+                </div>
+                <div style="height:6px;border-radius:999px;background:var(--track);overflow:hidden;"><div style="height:100%;border-radius:999px;width:{{ nt.barW }};background:{{ nt.barC }};"></div></div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="display:flex;gap:11px;margin-top:18px;">
+            <button onClick="{{ goScore }}" style="flex:1;height:52px;border-radius:15px;background:var(--ns-card);border:1.5px solid var(--ns-line-2);color:var(--ns-ink);font-size:14px;font-weight:700;cursor:pointer;">Full breakdown</button>
+            <button onClick="{{ goRecs }}" style="flex:1.3;height:52px;border-radius:15px;background:var(--ns-brand);border:none;color:var(--ns-on-brand);font-size:14px;font-weight:700;cursor:pointer;box-shadow:0 8px 18px rgba(37,111,237,.26);display:flex;align-items:center;justify-content:center;gap:7px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Save to history</button>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-top:16px;padding:12px 14px;background:var(--ns-card-2);border-radius:13px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><circle cx="12" cy="12" r="9"/><path d="M12 16v-4M12 8h.01"/></svg><div style="font-size:11.5px;color:var(--ns-ink-3);line-height:1.45;">This is a general heuristic, not medical advice. For specific dietary needs, consult a professional.</div></div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ SCORE ============ -->
+      <sc-if value="{{ isScore }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);--bandCol:{{ sel.bandCol }};--bandSoft:{{ sel.bandSoft }};">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 16px 4px;">
+          <button onClick="{{ goResult }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Health score</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;padding:18px 20px 0;">
+          <div style="width:188px;height:188px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--bandCol) calc(var(--gp,0)*1%),var(--track) 0);--gp:{{ sel.scorePct }};">
+            <div style="width:148px;height:148px;border-radius:50%;background:var(--ns-card);box-shadow:var(--shadow-card);display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:48px;font-weight:800;color:var(--bandCol);line-height:1;letter-spacing:-.03em;">{{ sel.score }}</div><div style="font-size:13px;color:var(--ns-ink-3);font-weight:600;margin-top:2px;">out of 10</div></div>
+          </div>
+          <div style="margin-top:16px;font-size:22px;font-weight:800;color:var(--bandCol);letter-spacing:-.02em;">{{ sel.bandLabel }}</div>
+          <div style="font-size:14px;color:var(--ns-ink-2);margin-top:3px;">{{ sel.name }} · {{ sel.bandMsg }}</div>
+
+          <div style="width:100%;margin-top:22px;display:flex;gap:6px;">
+            <div style="flex:1;height:8px;border-radius:999px;background:var(--bad);opacity:.85;"></div>
+            <div style="flex:1;height:8px;border-radius:999px;background:var(--caution);opacity:.85;"></div>
+            <div style="flex:1;height:8px;border-radius:999px;background:var(--good);opacity:.85;"></div>
+          </div>
+          <div style="width:100%;display:flex;justify-content:space-between;margin-top:7px;font-size:11px;font-weight:600;color:var(--ns-ink-3);"><span>0–4 Unhealthy</span><span>5–7 Moderate</span><span>8–10 Healthy</span></div>
+        </div>
+
+        <div style="padding:24px 20px 0;">
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);margin-bottom:12px;">Why this score</div>
+          <div style="display:flex;flex-direction:column;gap:9px;">
+            <sc-for list="{{ sel.reasons }}" as="r" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:12px;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:14px;padding:12px 14px;box-shadow:var(--shadow-card);">
+                <div style="width:30px;height:30px;border-radius:9px;flex:none;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:{{ r.col }};background:{{ r.soft }};">{{ r.symbol }}</div>
+                <div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--ns-ink);">{{ r.t }}</div><div style="font-size:12px;color:var(--ns-ink-3);margin-top:1px;">{{ r.d }}</div></div>
+              </div>
+            </sc-for>
+          </div>
+          <button onClick="{{ goRecs }}" style="width:100%;height:54px;border-radius:15px;background:var(--ns-brand);border:none;color:var(--ns-on-brand);font-size:15px;font-weight:700;cursor:pointer;margin-top:18px;box-shadow:0 8px 18px rgba(37,111,237,.26);">See recommendations</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ RECOMMENDATIONS ============ -->
+      <sc-if value="{{ isRecs }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 16px 10px;">
+          <button onClick="{{ goScore }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Recommendations</div>
+        </div>
+        <div style="padding:0 20px;">
+          <div style="background:var(--hero);border-radius:20px;padding:20px;color:#fff;"><div style="font-size:13px;opacity:.85;font-weight:600;">FOR {{ selUpper }}</div><div style="font-size:18px;font-weight:800;margin-top:4px;letter-spacing:-.01em;">Small swaps, big difference</div><div style="font-size:13px;opacity:.85;margin-top:5px;line-height:1.5;">Based on this product's profile, here's how to eat a little smarter.</div></div>
+
+          <div style="font-size:15px;font-weight:700;color:var(--ns-ink);margin:22px 0 12px;">Tips for you</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ tips }}" as="tp" hint-placeholder-count="4">
+              <div style="display:flex;align-items:center;gap:12px;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:14px;padding:13px 14px;box-shadow:var(--shadow-card);">
+                <div style="width:34px;height:34px;border-radius:10px;background:var(--ns-brand-soft);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-brand)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+                <div style="font-size:14px;font-weight:600;color:var(--ns-ink);line-height:1.4;">{{ tp }}</div>
+              </div>
+            </sc-for>
+          </div>
+
+          <div style="font-size:15px;font-weight:700;color:var(--ns-ink);margin:24px 0 12px;">Healthier alternatives</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ alts }}" as="al" hint-placeholder-count="2">
+              <button onClick="{{ al.open }}" style="width:100%;text-align:left;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:12px;display:flex;align-items:center;gap:13px;cursor:pointer;">
+                <div style="width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex:none;background:{{ al.av.bg }};color:{{ al.av.fg }};">{{ al.av.t }}</div>
+                <div style="flex:1;min-width:0;"><div style="font-size:15px;font-weight:700;color:var(--ns-ink);">{{ al.name }}</div><div style="font-size:12px;color:var(--ns-ink-3);margin-top:2px;">{{ al.brand }}</div></div>
+                <div style="display:flex;align-items:center;gap:8px;"><span style="font-size:12px;font-weight:800;padding:5px 9px;border-radius:9px;color:{{ al.bandCol }};background:{{ al.bandSoft }};">{{ al.score }}/10</span><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ HISTORY ============ -->
+      <sc-if value="{{ isHistory }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:54px 0 96px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:0 20px 12px;">
+          <div style="font-size:24px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;white-space:nowrap;">Scan history</div>
+          <button onClick="{{ openSheet }}" style="width:42px;height:42px;border-radius:13px;background:{{ filterBtnBg }};border:1px solid {{ filterBtnBd }};display:flex;align-items:center;justify-content:center;color:{{ filterBtnFg }};cursor:pointer;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18M7 12h10M11 19h2"/></svg></button>
+        </div>
+        <div style="display:flex;gap:8px;padding:0 20px 16px;overflow-x:auto;">
+          <button onClick="{{ setAll }}" style="flex:none;height:36px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;background:{{ chipAll.bg }};color:{{ chipAll.fg }};border:1.5px solid {{ chipAll.bd }};">All</button>
+          <button onClick="{{ setHealthy }}" style="flex:none;height:36px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;background:{{ chipH.bg }};color:{{ chipH.fg }};border:1.5px solid {{ chipH.bd }};">Healthy</button>
+          <button onClick="{{ setModerate }}" style="flex:none;height:36px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;background:{{ chipM.bg }};color:{{ chipM.fg }};border:1.5px solid {{ chipM.bd }};">Moderate</button>
+          <button onClick="{{ setUnhealthy }}" style="flex:none;height:36px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;background:{{ chipU.bg }};color:{{ chipU.fg }};border:1.5px solid {{ chipU.bd }};">Unhealthy</button>
+        </div>
+        <div style="padding:0 20px;display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ filtered }}" as="it" hint-placeholder-count="6">
+            <button onClick="{{ it.open }}" style="width:100%;text-align:left;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:12px;display:flex;align-items:center;gap:13px;cursor:pointer;border-left:4px solid {{ it.bandCol }};">
+              <div style="width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:18px;flex:none;background:{{ it.av.bg }};color:{{ it.av.fg }};">{{ it.av.t }}</div>
+              <div style="flex:1;min-width:0;"><div style="font-size:15px;font-weight:700;color:var(--ns-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ it.name }}</div><div style="font-size:12px;color:var(--ns-ink-3);margin-top:2px;">{{ it.dateLine }}</div></div>
+              <div style="display:flex;flex-direction:column;align-items:flex-end;gap:4px;flex:none;"><span style="font-size:14px;font-weight:800;color:{{ it.bandCol }};">{{ it.score }}</span><span style="font-size:10px;font-weight:700;color:{{ it.bandCol }};background:{{ it.bandSoft }};padding:2px 7px;border-radius:6px;">{{ it.bandLabel }}</span></div>
+            </button>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ INSIGHTS ============ -->
+      <sc-if value="{{ isInsights }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:54px 0 96px;background:var(--ns-page);">
+        <div style="padding:0 20px 14px;"><div style="font-size:24px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">Insights</div><div style="font-size:13px;color:var(--ns-ink-2);margin-top:2px;">Your week at a glance</div></div>
+        <div style="padding:0 20px;display:flex;gap:6px;margin-bottom:18px;"><div style="flex:1;height:38px;border-radius:11px;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--ns-ink-3);">Daily</div><div style="flex:1;height:38px;border-radius:11px;background:var(--ns-brand);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--ns-on-brand);">Weekly</div><div style="flex:1;height:38px;border-radius:11px;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--ns-ink-3);">Monthly</div></div>
+
+        <div style="padding:0 20px;"><div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);padding:18px;">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:18px;"><div><div style="font-size:13px;color:var(--ns-ink-2);font-weight:600;">Avg health score</div><div style="font-size:34px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;margin-top:2px;">7.2<span style="font-size:15px;color:var(--ns-ink-3);font-weight:600;">/10</span></div></div><div style="text-align:right;"><div style="font-size:12px;color:var(--good);font-weight:700;">▲ 0.6</div><div style="font-size:11px;color:var(--ns-ink-3);margin-top:2px;">vs last week</div></div></div>
+          <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:8px;height:120px;">
+            <sc-for list="{{ chart }}" as="c" hint-placeholder-count="7">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;justify-content:flex-end;height:100%;"><div style="width:100%;max-width:22px;border-radius:7px 7px 4px 4px;height:{{ c.h }};background:{{ c.col }};"></div><div style="font-size:11px;color:var(--ns-ink-3);font-weight:600;">{{ c.d }}</div></div>
+            </sc-for>
+          </div>
+        </div></div>
+
+        <div style="padding:18px 20px 0;"><div style="font-size:15px;font-weight:700;color:var(--ns-ink);margin-bottom:12px;">This week's nutrients</div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);padding:16px;display:flex;flex-direction:column;gap:14px;">
+            <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:13px;font-weight:600;color:var(--ns-ink);">Carbohydrates</span><span style="font-size:13px;font-weight:700;color:var(--ns-ink);">210g</span></div><div style="height:7px;border-radius:999px;background:var(--track);"><div style="height:100%;width:72%;border-radius:999px;background:var(--ns-brand);"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:13px;font-weight:600;color:var(--ns-ink);">Protein</span><span style="font-size:13px;font-weight:700;color:var(--ns-ink);">75g</span></div><div style="height:7px;border-radius:999px;background:var(--track);"><div style="height:100%;width:52%;border-radius:999px;background:var(--good);"></div></div></div>
+            <div><div style="display:flex;justify-content:space-between;margin-bottom:6px;"><span style="font-size:13px;font-weight:600;color:var(--ns-ink);">Sugar</span><span style="font-size:13px;font-weight:700;color:var(--ns-ink);">48g</span></div><div style="height:7px;border-radius:999px;background:var(--track);"><div style="height:100%;width:84%;border-radius:999px;background:var(--bad);"></div></div></div>
+          </div>
+        </div>
+        <div style="padding:18px 20px 0;">
+          <div style="font-size:15px;font-weight:700;color:var(--ns-ink);margin-bottom:12px;">Tools</div>
+          <div style="display:flex;gap:11px;">
+            <button onClick="{{ goBmi }}" style="flex:1;text-align:left;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px;cursor:pointer;"><div style="width:38px;height:38px;border-radius:11px;background:var(--ns-brand-soft);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ns-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12 16 8"/><circle cx="12" cy="12" r="1.5"/></svg></div><div style="font-size:14px;font-weight:700;color:var(--ns-ink);">BMI calculator</div><div style="font-size:12px;color:var(--ns-ink-3);margin-top:2px;">22.9 · Normal</div></button>
+            <button onClick="{{ goCalorie }}" style="flex:1;text-align:left;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px;cursor:pointer;"><div style="width:38px;height:38px;border-radius:11px;background:var(--good-soft);display:flex;align-items:center;justify-content:center;margin-bottom:10px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--good)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 4 6 5 6 10a6 6 0 0 1-12 0c0-2 1-3 2-4 1 2 2 2 2 2 0-3 0-5 2-8z"/></svg></div><div style="font-size:14px;font-weight:700;color:var(--ns-ink);">Calorie tracker</div><div style="font-size:12px;color:var(--ns-ink-3);margin-top:2px;">1,650 kcal today</div></button>
+          </div>
+          <button onClick="{{ goReports }}" style="width:100%;text-align:left;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:14px;cursor:pointer;display:flex;align-items:center;gap:13px;margin-top:11px;"><div style="width:42px;height:42px;border-radius:12px;background:var(--caution-soft);display:flex;align-items:center;justify-content:center;flex:none;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="var(--caution)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4"/><path d="M5 8V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-1"/><path d="M3 13h7M3 17h5"/></svg></div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--ns-ink);">Nutrition reports</div><div style="font-size:12px;color:var(--ns-ink-3);margin-top:1px;">Daily, weekly &amp; monthly totals</div></div><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ PROFILE ============ -->
+      <sc-if value="{{ isProfile }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding-bottom:96px;background:var(--ns-page);">
+        <div style="background:var(--hero);border-radius:0 0 26px 26px;padding:62px 22px 26px;color:#fff;text-align:center;">
+          <div style="width:84px;height:84px;border-radius:50%;background:rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;font-size:30px;font-weight:800;margin:0 auto 12px;border:3px solid rgba(255,255,255,.35);">JD</div>
+          <div style="font-size:21px;font-weight:800;letter-spacing:-.01em;">John Doe</div>
+          <div style="font-size:13px;opacity:.82;margin-top:2px;">john.doe@email.com</div>
+          <div style="display:flex;gap:11px;margin-top:18px;">
+            <div style="flex:1;background:rgba(255,255,255,.16);border-radius:14px;padding:11px;"><div style="font-size:20px;font-weight:800;">84</div><div style="font-size:11px;opacity:.85;">Total scans</div></div>
+            <div style="flex:1;background:rgba(255,255,255,.16);border-radius:14px;padding:11px;"><div style="font-size:20px;font-weight:800;">62%</div><div style="font-size:11px;opacity:.85;">Healthy picks</div></div>
+            <div style="flex:1;background:rgba(255,255,255,.16);border-radius:14px;padding:11px;"><div style="font-size:20px;font-weight:800;">9🔥</div><div style="font-size:11px;opacity:.85;">Day streak</div></div>
+          </div>
+        </div>
+        <div style="padding:18px 20px 0;">
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);overflow:hidden;">
+            <button onClick="{{ goEditProfile }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px;border-bottom:1px solid var(--ns-line);"><div style="width:34px;height:34px;border-radius:10px;background:var(--ns-brand-soft);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></div><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Personal information</div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+            <div style="display:flex;align-items:center;gap:13px;padding:15px 16px;border-bottom:1px solid var(--ns-line);"><div style="width:34px;height:34px;border-radius:10px;background:var(--good-soft);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--good)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Health goals</div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+            <button onClick="{{ goSettings }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px;border-bottom:1px solid var(--ns-line);"><div style="width:34px;height:34px;border-radius:10px;background:var(--caution-soft);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--caution)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.6 1.6 0 0 0-2.7 1.1V21a2 2 0 1 1-4 0v-.1A1.6 1.6 0 0 0 7 19.4a1.6 1.6 0 0 0-1.8.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.6 1.6 0 0 0-1.1-2.7H1a2 2 0 1 1 0-4h.1A1.6 1.6 0 0 0 2.6 7a1.6 1.6 0 0 0-.3-1.8l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1A1.6 1.6 0 0 0 7 2.6 1.6 1.6 0 0 0 8 1.1V1a2 2 0 1 1 4 0v.1A1.6 1.6 0 0 0 14.6 2.6Z"/></svg></div><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Settings</div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+            <button onClick="{{ goAdmin }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px;"><div style="width:34px;height:34px;border-radius:10px;background:var(--bad-soft);display:flex;align-items:center;justify-content:center;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--bad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-4 8-8 9-4-1-8-4-8-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Admin panel</div><span style="font-size:10px;font-weight:700;color:var(--bad);background:var(--bad-soft);padding:3px 8px;border-radius:6px;">ADMIN</span></button>
+          </div>
+          <button onClick="{{ goSplash }}" style="width:100%;height:52px;border-radius:15px;background:var(--ns-card);border:1.5px solid var(--ns-line-2);color:var(--bad);font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="m16 17 5-5-5-5M21 12H9"/></svg>Log out</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ SETTINGS ============ -->
+      <sc-if value="{{ isSettings }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 16px 14px;">
+          <button onClick="{{ goProfile }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Settings</div>
+        </div>
+        <div style="padding:0 20px;">
+          <div style="font-size:12px;font-weight:700;color:var(--ns-ink-3);letter-spacing:.06em;margin-bottom:10px;">PREFERENCES</div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);overflow:hidden;">
+            <button onClick="{{ toggleTheme }}" style="width:100%;background:none;border:none;cursor:pointer;text-align:left;display:flex;align-items:center;gap:13px;padding:15px 16px;border-bottom:1px solid var(--ns-line);">
+              <div style="width:34px;height:34px;border-radius:10px;background:var(--ns-brand-soft);display:flex;align-items:center;justify-content:center;color:var(--ns-brand);">{{ themeIcon }}</div>
+              <div style="flex:1;"><div style="font-size:14px;font-weight:600;color:var(--ns-ink);">Dark mode</div><div style="font-size:12px;color:var(--ns-ink-3);">{{ themeLabel }}</div></div>
+              <div style="width:48px;height:28px;border-radius:999px;padding:3px;display:flex;background:{{ darkTrack }};justify-content:{{ darkJustify }};transition:all .2s;"><div style="width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 1px 3px rgba(0,0,0,.3);"></div></div>
+            </button>
+            <div style="display:flex;align-items:center;gap:13px;padding:15px 16px;border-bottom:1px solid var(--ns-line);"><div style="width:34px;height:34px;border-radius:10px;background:var(--caution-soft);display:flex;align-items:center;justify-content:center;color:var(--caution);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 8a6 6 0 0 1 12 0c0 7 3 9 3 9H3s3-2 3-9"/><path d="M10.3 21a1.94 1.94 0 0 0 3.4 0"/></svg></div><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Push notifications</div><div style="width:48px;height:28px;border-radius:999px;padding:3px;display:flex;justify-content:flex-end;background:var(--ns-brand);"><div style="width:22px;height:22px;border-radius:50%;background:#fff;"></div></div></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:15px 16px;"><div style="width:34px;height:34px;border-radius:10px;background:var(--bad-soft);display:flex;align-items:center;justify-content:center;color:var(--bad);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z"/><path d="M12 9v4M12 17h.01"/></svg></div><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">High sugar / sodium alerts</div><div style="width:48px;height:28px;border-radius:999px;padding:3px;display:flex;justify-content:flex-end;background:var(--ns-brand);"><div style="width:22px;height:22px;border-radius:50%;background:#fff;"></div></div></div>
+          </div>
+
+          <div style="font-size:12px;font-weight:700;color:var(--ns-ink-3);letter-spacing:.06em;margin:22px 0 10px;">UNITS &amp; DATA</div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:13px;padding:15px 16px;border-bottom:1px solid var(--ns-line);"><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Measurement units</div><span style="font-size:13px;color:var(--ns-ink-2);font-weight:600;">Metric (g, kcal)</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:15px 16px;border-bottom:1px solid var(--ns-line);"><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Language</div><span style="font-size:13px;color:var(--ns-ink-2);font-weight:600;">English</span><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:15px 16px;"><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Privacy &amp; data</div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></div>
+          </div>
+          <div style="font-size:12px;font-weight:700;color:var(--ns-ink-3);letter-spacing:.06em;margin:22px 0 10px;">ACCOUNT</div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);overflow:hidden;">
+            <button onClick="{{ goEditProfile }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px;border-bottom:1px solid var(--ns-line);"><div style="width:34px;height:34px;border-radius:10px;background:var(--ns-brand-soft);display:flex;align-items:center;justify-content:center;color:var(--ns-brand);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg></div><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Edit profile</div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+            <button onClick="{{ goChangePw }}" style="width:100%;text-align:left;background:none;border:none;cursor:pointer;display:flex;align-items:center;gap:13px;padding:15px 16px;"><div style="width:34px;height:34px;border-radius:10px;background:var(--good-soft);display:flex;align-items:center;justify-content:center;color:var(--good);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg></div><div style="flex:1;font-size:14px;font-weight:600;color:var(--ns-ink);">Change password</div><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+          </div>
+          <div style="text-align:center;font-size:12px;color:var(--ns-ink-3);margin-top:22px;">NutriScan AI · v1.0.0</div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ ADMIN ============ -->
+      <sc-if value="{{ isAdmin }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 16px 12px;">
+          <button onClick="{{ goProfile }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Admin</div>
+        </div>
+        <div style="padding:0 20px 14px;display:flex;gap:6px;background:transparent;">
+          <button onClick="{{ setAdminDash }}" style="flex:1;height:38px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;background:{{ adTabDash.bg }};color:{{ adTabDash.fg }};border:1px solid {{ adTabDash.bd }};">Dashboard</button>
+          <button onClick="{{ setAdminProducts }}" style="flex:1;height:38px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;background:{{ adTabProd.bg }};color:{{ adTabProd.fg }};border:1px solid {{ adTabProd.bd }};">Products</button>
+          <button onClick="{{ setAdminUsers }}" style="flex:1;height:38px;border-radius:11px;font-size:13px;font-weight:700;cursor:pointer;background:{{ adTabUsers.bg }};color:{{ adTabUsers.fg }};border:1px solid {{ adTabUsers.bd }};">Users</button>
+        </div>
+
+        <sc-if value="{{ adminDash }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:0 20px;">
+          <div style="display:flex;gap:11px;margin-bottom:11px;">
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px;"><div style="font-size:26px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">2,456</div><div style="font-size:12px;color:var(--ns-ink-2);margin-top:2px;">Total users</div></div>
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px;"><div style="font-size:26px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">8,423</div><div style="font-size:12px;color:var(--ns-ink-2);margin-top:2px;">Total scans</div></div>
+          </div>
+          <div style="display:flex;gap:11px;margin-bottom:20px;">
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px;"><div style="font-size:26px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">1,520</div><div style="font-size:12px;color:var(--ns-ink-2);margin-top:2px;">Products cached</div></div>
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px;"><div style="font-size:26px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">6.8<span style="font-size:13px;color:var(--ns-ink-3);">/10</span></div><div style="font-size:12px;color:var(--ns-ink-2);margin-top:2px;">Avg score</div></div>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:var(--ns-ink);margin-bottom:12px;">Scans per day</div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);padding:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:7px;height:130px;">
+            <sc-for list="{{ adminChart }}" as="c" hint-placeholder-count="7">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:6px;justify-content:flex-end;height:100%;"><div style="width:100%;max-width:20px;border-radius:6px;height:{{ c.h }};background:var(--ns-brand);opacity:.85;"></div><div style="font-size:10px;color:var(--ns-ink-3);font-weight:600;">{{ c.d }}</div></div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ adminProducts }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:0 20px;">
+          <div style="display:flex;gap:10px;margin-bottom:14px;">
+            <div style="flex:1;height:44px;border-radius:13px;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;gap:9px;padding:0 14px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg><span style="font-size:14px;color:var(--ns-ink-3);">Search products…</span></div>
+            <button onClick="{{ openAddProduct }}" style="width:44px;height:44px;border-radius:13px;background:var(--ns-brand);border:none;display:flex;align-items:center;justify-content:center;color:#fff;cursor:pointer;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg></button>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ adminProductList }}" as="p" hint-placeholder-count="5">
+              <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:14px;box-shadow:var(--shadow-card);padding:11px;display:flex;align-items:center;gap:12px;">
+                <div style="width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex:none;background:{{ p.av.bg }};color:{{ p.av.fg }};">{{ p.av.t }}</div>
+                <div style="flex:1;min-width:0;"><div style="font-size:14px;font-weight:700;color:var(--ns-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ p.name }}</div><div style="font-size:11px;color:var(--ns-ink-3);">{{ p.brand }} · score {{ p.score }}</div></div>
+                <span style="font-size:10px;font-weight:700;color:var(--good);background:var(--good-soft);padding:3px 8px;border-radius:6px;">Active</span>
+                <button style="width:34px;height:34px;border-radius:10px;background:var(--bad-soft);border:none;display:flex;align-items:center;justify-content:center;color:var(--bad);cursor:pointer;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M8 6V4h8v2M6 6l1 14h10l1-14"/></svg></button>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ adminUsersTab }}" hint-placeholder-val="{{ false }}">
+        <div style="padding:0 20px;">
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);overflow:hidden;">
+            <sc-for list="{{ adminUsers }}" as="u" hint-placeholder-count="5">
+              <div style="display:flex;align-items:center;gap:12px;padding:13px 14px;border-bottom:1px solid var(--ns-line);">
+                <div style="width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;flex:none;background:var(--ns-brand-soft);color:var(--ns-brand);">{{ u.in }}</div>
+                <div style="flex:1;min-width:0;"><div style="font-size:14px;font-weight:700;color:var(--ns-ink);">{{ u.name }}</div><div style="font-size:11px;color:var(--ns-ink-3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ u.email }}</div></div>
+                <span style="font-size:10px;font-weight:700;padding:4px 9px;border-radius:7px;color:{{ u.col }};background:{{ u.soft }};">{{ u.status }}</span>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+        </sc-if>
+      </div>
+      </sc-if>
+
+      <!-- ============ EDIT PROFILE ============ -->
+      <sc-if value="{{ isEdit }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 16px 8px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <button onClick="{{ goProfile }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+            <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Edit profile</div>
+          </div>
+          <button onClick="{{ goProfile }}" style="background:none;border:none;cursor:pointer;font-size:14px;font-weight:700;color:var(--ns-brand);">Save</button>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;padding:10px 20px 18px;">
+          <div style="position:relative;width:92px;height:92px;">
+            <div style="width:92px;height:92px;border-radius:50%;background:var(--hero);display:flex;align-items:center;justify-content:center;font-size:32px;font-weight:800;color:#fff;">JD</div>
+            <div style="position:absolute;bottom:0;right:0;width:30px;height:30px;border-radius:50%;background:var(--ns-brand);border:3px solid var(--ns-page);display:flex;align-items:center;justify-content:center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 4h-5L7 7H4a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2h-3l-2.5-3z"/><circle cx="12" cy="13" r="3"/></svg></div>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:var(--ns-brand);margin-top:10px;">Change photo</div>
+        </div>
+        <div style="padding:0 20px;display:flex;flex-direction:column;gap:14px;">
+          <div><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Full name</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 16px;color:var(--ns-ink);font-size:15px;font-weight:500;">John Doe</div></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Email</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 16px;color:var(--ns-ink);font-size:15px;font-weight:500;">john.doe@email.com</div></div>
+          <div><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Phone</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 16px;color:var(--ns-ink);font-size:15px;font-weight:500;">+91 98765 43210</div></div>
+          <div style="display:flex;gap:12px;">
+            <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Height</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 16px;color:var(--ns-ink);font-size:15px;font-weight:500;">175 cm</div></div>
+            <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Weight</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 16px;color:var(--ns-ink);font-size:15px;font-weight:500;">70 kg</div></div>
+          </div>
+          <button onClick="{{ goProfile }}" style="width:100%;height:54px;border-radius:15px;background:var(--ns-brand);border:none;color:var(--ns-on-brand);font-size:16px;font-weight:700;cursor:pointer;margin-top:6px;box-shadow:0 8px 18px rgba(37,111,237,.26);">Save changes</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ CHANGE PASSWORD ============ -->
+      <sc-if value="{{ isChangePw }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 16px 14px;">
+          <button onClick="{{ goSettings }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Change password</div>
+        </div>
+        <div style="padding:0 20px;">
+          <div style="display:flex;align-items:flex-start;gap:11px;background:var(--ns-brand-soft);border-radius:14px;padding:14px;margin-bottom:18px;"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></svg><div style="font-size:12.5px;color:var(--ns-ink-2);line-height:1.45;">Use at least 8 characters with a mix of letters, numbers and a symbol.</div></div>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Current password</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:var(--ns-ink);font-size:15px;">••••••••<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div></div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">New password</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-brand);background:var(--ns-card);display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:var(--ns-ink);font-size:15px;">••••••••••<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg></div>
+              <div style="display:flex;gap:5px;margin-top:9px;"><div style="flex:1;height:5px;border-radius:999px;background:var(--good);"></div><div style="flex:1;height:5px;border-radius:999px;background:var(--good);"></div><div style="flex:1;height:5px;border-radius:999px;background:var(--good);"></div><div style="flex:1;height:5px;border-radius:999px;background:var(--track);"></div></div>
+              <div style="font-size:11px;font-weight:600;color:var(--good);margin-top:6px;">Strong password</div>
+            </div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:7px;">Confirm new password</div><div style="height:52px;border-radius:14px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;justify-content:space-between;padding:0 16px;color:var(--ns-ink);font-size:15px;">••••••••••<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--good)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div></div>
+          </div>
+          <button onClick="{{ goSettings }}" style="width:100%;height:54px;border-radius:15px;background:var(--ns-brand);border:none;color:var(--ns-on-brand);font-size:16px;font-weight:700;cursor:pointer;margin-top:22px;box-shadow:0 8px 18px rgba(37,111,237,.26);">Update password</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ ALERTS ============ -->
+      <sc-if value="{{ isAlerts }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:6px 16px 14px;">
+          <div style="display:flex;align-items:center;gap:10px;">
+            <button onClick="{{ goHome }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+            <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Smart alerts</div>
+          </div>
+          <button style="background:none;border:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--ns-brand);">Mark all read</button>
+        </div>
+        <div style="padding:0 20px;display:flex;flex-direction:column;gap:10px;">
+          <sc-for list="{{ alerts }}" as="a" hint-placeholder-count="5">
+            <div style="background:{{ a.cardBg }};border:1px solid {{ a.cardBd }};border-radius:16px;box-shadow:var(--shadow-card);padding:14px;display:flex;gap:13px;align-items:flex-start;">
+              <div style="width:42px;height:42px;border-radius:12px;flex:none;display:flex;align-items:center;justify-content:center;color:{{ a.col }};background:{{ a.soft }};"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="{{ a.glyph }}"/></svg></div>
+              <div style="flex:1;min-width:0;">
+                <div style="display:flex;align-items:center;justify-content:space-between;gap:8px;"><span style="font-size:14px;font-weight:700;color:var(--ns-ink);min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ a.title }}</span><span style="font-size:11px;color:var(--ns-ink-3);flex:none;">{{ a.time }}</span></div>
+                <div style="font-size:13px;color:var(--ns-ink-2);line-height:1.45;margin-top:3px;">{{ a.msg }}</div>
+              </div>
+              <span style="width:9px;height:9px;border-radius:50%;flex:none;margin-top:6px;background:{{ a.dot }};"></span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ NUTRITION REPORTS ============ -->
+      <sc-if value="{{ isReports }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 16px 14px;">
+          <button onClick="{{ goInsights }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Nutrition reports</div>
+        </div>
+        <div style="padding:0 20px;">
+          <div style="display:flex;gap:6px;background:var(--ns-card-2);border:1px solid var(--ns-line);border-radius:13px;padding:5px;margin-bottom:14px;">
+            <div style="flex:1;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--ns-ink-3);">Daily</div>
+            <div style="flex:1;height:38px;border-radius:9px;background:var(--ns-card);box-shadow:var(--shadow-card);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--ns-ink);">Weekly</div>
+            <div style="flex:1;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--ns-ink-3);">Monthly</div>
+          </div>
+          <div style="display:flex;align-items:center;justify-content:space-between;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:13px;box-shadow:var(--shadow-card);padding:11px 16px;margin-bottom:16px;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            <span style="font-size:14px;font-weight:700;color:var(--ns-ink);">6 – 12 May 2024</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--ns-ink-3)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </div>
+
+          <div style="display:flex;gap:11px;margin-bottom:11px;">
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px;"><div style="font-size:26px;font-weight:800;color:var(--ns-brand);letter-spacing:-.02em;">7.2<span style="font-size:13px;color:var(--ns-ink-3);font-weight:600;">/10</span></div><div style="font-size:12px;color:var(--ns-ink-2);margin-top:2px;">Avg health score</div></div>
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px;"><div style="font-size:26px;font-weight:800;color:var(--ns-ink);letter-spacing:-.02em;">12</div><div style="font-size:12px;color:var(--ns-ink-2);margin-top:2px;">Products scanned</div></div>
+          </div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:16px;box-shadow:var(--shadow-card);padding:15px 16px;display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;">
+            <div style="display:flex;align-items:center;gap:11px;"><div style="width:38px;height:38px;border-radius:11px;background:var(--caution-soft);display:flex;align-items:center;justify-content:center;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--caution)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 4 6 5 6 10a6 6 0 0 1-12 0c0-2 1-3 2-4 1 2 2 2 2 2 0-3 0-5 2-8z"/></svg></div><span style="font-size:14px;font-weight:600;color:var(--ns-ink-2);">Total calories logged</span></div>
+            <span style="font-size:18px;font-weight:800;color:var(--ns-ink);">9,450<span style="font-size:12px;color:var(--ns-ink-3);font-weight:600;"> kcal</span></span>
+          </div>
+
+          <div style="font-size:15px;font-weight:700;color:var(--ns-ink);margin-bottom:12px;">Health score this week</div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);padding:18px;display:flex;align-items:flex-end;justify-content:space-between;gap:8px;height:120px;margin-bottom:22px;">
+            <sc-for list="{{ chart }}" as="c" hint-placeholder-count="7">
+              <div style="flex:1;display:flex;flex-direction:column;align-items:center;gap:7px;justify-content:flex-end;height:100%;"><div style="width:100%;max-width:22px;border-radius:7px 7px 4px 4px;height:{{ c.h }};background:{{ c.col }};"></div><div style="font-size:11px;color:var(--ns-ink-3);font-weight:600;">{{ c.d }}</div></div>
+            </sc-for>
+          </div>
+
+          <div style="font-size:15px;font-weight:700;color:var(--ns-ink);margin-bottom:12px;">Most unhealthy picks</div>
+          <div style="display:flex;flex-direction:column;gap:10px;">
+            <sc-for list="{{ topUnhealthy }}" as="it" hint-placeholder-count="3">
+              <button onClick="{{ it.open }}" style="width:100%;text-align:left;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:14px;box-shadow:var(--shadow-card);padding:11px;display:flex;align-items:center;gap:12px;cursor:pointer;border-left:4px solid {{ it.bandCol }};">
+                <div style="width:42px;height:42px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;flex:none;background:{{ it.av.bg }};color:{{ it.av.fg }};">{{ it.av.t }}</div>
+                <div style="flex:1;min-width:0;"><div style="font-size:14px;font-weight:700;color:var(--ns-ink);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ it.name }}</div><div style="font-size:12px;color:var(--ns-ink-3);">{{ it.bandLabel }}</div></div>
+                <span style="font-size:15px;font-weight:800;color:{{ it.bandCol }};">{{ it.score }}</span>
+              </button>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ BMI ============ -->
+      <sc-if value="{{ isBmi }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 16px 14px;">
+          <button onClick="{{ goInsights }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">BMI calculator</div>
+        </div>
+        <div style="padding:0 20px;">
+          <div style="display:flex;gap:6px;background:var(--ns-card-2);border:1px solid var(--ns-line);border-radius:13px;padding:5px;margin-bottom:18px;">
+            <div style="flex:1;height:38px;border-radius:9px;background:var(--ns-card);box-shadow:var(--shadow-card);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:var(--ns-ink);">Calculate</div>
+            <div style="flex:1;height:38px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:600;color:var(--ns-ink-3);">History</div>
+          </div>
+
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);padding:18px;margin-bottom:12px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;"><span style="font-size:14px;font-weight:700;color:var(--ns-ink);">Height</span><span style="font-size:18px;font-weight:800;color:var(--ns-brand);">175<span style="font-size:12px;color:var(--ns-ink-3);font-weight:600;"> cm</span></span></div>
+            <div style="height:8px;border-radius:999px;background:var(--track);position:relative;"><div style="height:100%;width:62%;border-radius:999px;background:var(--ns-brand);"></div><div style="position:absolute;left:62%;top:50%;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:50%;background:var(--ns-card);border:3px solid var(--ns-brand);box-shadow:var(--shadow-card);"></div></div>
+          </div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);padding:18px;margin-bottom:18px;">
+            <div style="display:flex;align-items:baseline;justify-content:space-between;margin-bottom:12px;"><span style="font-size:14px;font-weight:700;color:var(--ns-ink);">Weight</span><span style="font-size:18px;font-weight:800;color:var(--ns-brand);">70<span style="font-size:12px;color:var(--ns-ink-3);font-weight:600;"> kg</span></span></div>
+            <div style="height:8px;border-radius:999px;background:var(--track);position:relative;"><div style="height:100%;width:46%;border-radius:999px;background:var(--ns-brand);"></div><div style="position:absolute;left:46%;top:50%;transform:translate(-50%,-50%);width:22px;height:22px;border-radius:50%;background:var(--ns-card);border:3px solid var(--ns-brand);box-shadow:var(--shadow-card);"></div></div>
+          </div>
+
+          <div style="background:var(--hero);border-radius:20px;padding:22px;color:#fff;text-align:center;">
+            <div style="font-size:13px;opacity:.85;font-weight:600;letter-spacing:.04em;">YOUR BMI</div>
+            <div style="font-size:52px;font-weight:800;letter-spacing:-.03em;line-height:1.05;margin:2px 0;">22.9</div>
+            <div style="display:inline-block;font-size:13px;font-weight:700;background:rgba(255,255,255,.2);padding:5px 14px;border-radius:999px;">Normal weight</div>
+            <div style="margin-top:18px;position:relative;height:8px;border-radius:999px;display:flex;gap:3px;overflow:visible;">
+              <div style="flex:1;background:#7DB7FF;border-radius:999px 0 0 999px;"></div><div style="flex:1.4;background:#fff;"></div><div style="flex:1;background:#FFD27A;"></div><div style="flex:1;background:#FF9AA8;border-radius:0 999px 999px 0;"></div>
+              <div style="position:absolute;left:42%;top:-5px;width:18px;height:18px;border-radius:50%;background:#fff;border:3px solid #1E50C8;transform:translateX(-50%);"></div>
+            </div>
+            <div style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;opacity:.85;font-weight:600;"><span>Under</span><span>Normal</span><span>Over</span><span>Obese</span></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:8px;margin-top:16px;padding:12px 14px;background:var(--ns-card-2);border-radius:13px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--good)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><path d="M20 6 9 17l-5-5"/></svg><div style="font-size:11.5px;color:var(--ns-ink-2);line-height:1.45;">A BMI of 18.5–24.9 is considered healthy. Pair this with your scan habits to track overall wellbeing.</div></div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ CALORIE TRACKER ============ -->
+      <sc-if value="{{ isCalorie }}" hint-placeholder-val="{{ false }}">
+      <div data-ns-scroll="1" style="position:absolute;inset:0;overflow-y:auto;padding:46px 0 30px;background:var(--ns-page);">
+        <div style="display:flex;align-items:center;gap:10px;padding:6px 16px 8px;">
+          <button onClick="{{ goInsights }}" style="width:40px;height:40px;border-radius:50%;background:var(--ns-card);border:1px solid var(--ns-line);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;"><svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+          <div style="font-size:16px;font-weight:700;color:var(--ns-ink);">Calorie tracker</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;padding:14px 20px 0;">
+          <div style="width:172px;height:172px;border-radius:50%;display:grid;place-items:center;background:conic-gradient(var(--ns-brand) 82%,var(--track) 0);">
+            <div style="width:138px;height:138px;border-radius:50%;background:var(--ns-card);box-shadow:var(--shadow-card);display:flex;flex-direction:column;align-items:center;justify-content:center;"><div style="font-size:38px;font-weight:800;color:var(--ns-ink);line-height:1;letter-spacing:-.02em;">1,650</div><div style="font-size:12px;color:var(--ns-ink-3);font-weight:600;margin-top:3px;">of 2,000 kcal</div></div>
+          </div>
+          <div style="font-size:13px;color:var(--ns-ink-2);font-weight:600;margin-top:14px;">350 kcal left today · 82% of goal</div>
+        </div>
+        <div style="padding:18px 20px 0;">
+          <div style="display:flex;gap:11px;margin-bottom:20px;">
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:14px;box-shadow:var(--shadow-card);padding:13px;text-align:center;"><div style="font-size:11px;color:var(--ns-ink-3);font-weight:700;">CARBS</div><div style="font-size:18px;font-weight:800;color:var(--ns-ink);margin-top:3px;">210<span style="font-size:11px;color:var(--ns-ink-3);">g</span></div></div>
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:14px;box-shadow:var(--shadow-card);padding:13px;text-align:center;"><div style="font-size:11px;color:var(--good);font-weight:700;">PROTEIN</div><div style="font-size:18px;font-weight:800;color:var(--ns-ink);margin-top:3px;">75<span style="font-size:11px;color:var(--ns-ink-3);">g</span></div></div>
+            <div style="flex:1;background:var(--ns-card);border:1px solid var(--ns-line);border-radius:14px;box-shadow:var(--shadow-card);padding:13px;text-align:center;"><div style="font-size:11px;color:var(--caution);font-weight:700;">FAT</div><div style="font-size:18px;font-weight:800;color:var(--ns-ink);margin-top:3px;">60<span style="font-size:11px;color:var(--ns-ink-3);">g</span></div></div>
+          </div>
+          <div style="font-size:15px;font-weight:700;color:var(--ns-ink);margin-bottom:12px;">Today's meals</div>
+          <div style="background:var(--ns-card);border:1px solid var(--ns-line);border-radius:18px;box-shadow:var(--shadow-card);overflow:hidden;">
+            <div style="display:flex;align-items:center;gap:13px;padding:14px 16px;border-bottom:1px solid var(--ns-line);"><div style="width:38px;height:38px;border-radius:11px;background:var(--caution-soft);display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--caution)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 4 6 5 6 10a6 6 0 0 1-12 0c0-2 1-3 2-4 1 2 2 2 2 2 0-3 0-5 2-8z"/></svg></div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--ns-ink);">Breakfast</div><div style="font-size:12px;color:var(--ns-ink-3);">Oats, banana, coffee</div></div><span style="font-size:14px;font-weight:700;color:var(--ns-ink);">420</span></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:14px 16px;border-bottom:1px solid var(--ns-line);"><div style="width:38px;height:38px;border-radius:11px;background:var(--good-soft);display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--good)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11h18M5 11V7a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4M6 11v8M18 11v8"/></svg></div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--ns-ink);">Lunch</div><div style="font-size:12px;color:var(--ns-ink-3);">Rice, dal, salad</div></div><span style="font-size:14px;font-weight:700;color:var(--ns-ink);">680</span></div>
+            <div style="display:flex;align-items:center;gap:13px;padding:14px 16px;"><div style="width:38px;height:38px;border-radius:11px;background:var(--bad-soft);display:flex;align-items:center;justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="var(--bad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9v6M11 9v6M15 9v6"/></svg></div><div style="flex:1;"><div style="font-size:14px;font-weight:700;color:var(--ns-ink);">Snack</div><div style="font-size:12px;color:var(--ns-ink-3);">Lay's Classic · scanned</div></div><span style="font-size:14px;font-weight:700;color:var(--ns-ink);">250</span></div>
+          </div>
+          <button style="width:100%;height:52px;border-radius:15px;background:var(--ns-brand);border:none;color:var(--ns-on-brand);font-size:15px;font-weight:700;cursor:pointer;margin-top:16px;display:flex;align-items:center;justify-content:center;gap:8px;box-shadow:0 8px 18px rgba(37,111,237,.26);"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12h14"/></svg>Add food</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ BOTTOM NAV ============ -->
+      <sc-if value="{{ showNav }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;left:0;right:0;bottom:0;height:80px;background:var(--ns-card);border-top:1px solid var(--ns-line);display:flex;align-items:flex-start;justify-content:space-around;padding:11px 6px 0;z-index:50;">
+        <button onClick="{{ goHome }}" style="width:56px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;color:{{ navCol.home }};"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5.5 9.5V21h13V9.5"/></svg><span style="font-size:10px;font-weight:700;">Home</span></button>
+        <button onClick="{{ goHistory }}" style="width:56px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;color:{{ navCol.history }};"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><span style="font-size:10px;font-weight:700;">History</span></button>
+        <button onClick="{{ goScanner }}" style="width:60px;background:none;border:none;cursor:pointer;display:flex;justify-content:center;"><span style="margin-top:-20px;width:58px;height:58px;border-radius:50%;background:var(--ns-brand);border:4px solid var(--ns-card);box-shadow:0 8px 18px rgba(37,111,237,.4);display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2"/><path d="M7 12h10"/></svg></span></button>
+        <button onClick="{{ goInsights }}" style="width:56px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;color:{{ navCol.insights }};"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14v3M12 9v8M17 6v11"/></svg><span style="font-size:10px;font-weight:700;">Insights</span></button>
+        <button onClick="{{ goProfile }}" style="width:56px;background:none;border:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:4px;color:{{ navCol.profile }};"><svg width="23" height="23" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M5 21a7 7 0 0 1 14 0"/></svg><span style="font-size:10px;font-weight:700;">Profile</span></button>
+      </div>
+      </sc-if>
+
+      <!-- ============ FILTER SHEET ============ -->
+      <sc-if value="{{ showFilterSheet }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;z-index:80;">
+        <div onClick="{{ closeSheet }}" style="position:absolute;inset:0;background:rgba(10,14,22,.5);"></div>
+        <div style="position:absolute;left:0;right:0;bottom:0;background:var(--ns-card);border-radius:28px 28px 0 0;padding:10px 22px 28px;box-shadow:0 -8px 40px rgba(10,14,22,.3);animation:nsRise .25s ease;">
+          <div style="width:42px;height:5px;border-radius:999px;background:var(--ns-line-2);margin:0 auto 16px;"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="font-size:18px;font-weight:800;color:var(--ns-ink);letter-spacing:-.01em;">Sort &amp; filter</div><button onClick="{{ resetSheet }}" style="background:none;border:none;cursor:pointer;font-size:13px;font-weight:600;color:var(--ns-ink-3);">Reset</button></div>
+
+          <div style="font-size:12px;font-weight:700;color:var(--ns-ink-3);letter-spacing:.06em;margin-bottom:10px;">SORT BY</div>
+          <div style="display:flex;flex-direction:column;gap:2px;margin-bottom:20px;">
+            <button onClick="{{ setSortRecent }}" style="display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;padding:13px 4px;font-size:15px;font-weight:600;color:var(--ns-ink);border-bottom:1px solid var(--ns-line);">Newest first<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ sortRecentChk }}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+            <button onClick="{{ setSortHigh }}" style="display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;padding:13px 4px;font-size:15px;font-weight:600;color:var(--ns-ink);border-bottom:1px solid var(--ns-line);">Highest score<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ sortHighChk }}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+            <button onClick="{{ setSortLow }}" style="display:flex;align-items:center;justify-content:space-between;background:none;border:none;cursor:pointer;padding:13px 4px;font-size:15px;font-weight:600;color:var(--ns-ink);">Lowest score<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="{{ sortLowChk }}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></button>
+          </div>
+
+          <div style="font-size:12px;font-weight:700;color:var(--ns-ink-3);letter-spacing:.06em;margin-bottom:10px;">SHOW</div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;">
+            <button onClick="{{ setAll }}" style="height:38px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;background:{{ chipAll.bg }};color:{{ chipAll.fg }};border:1.5px solid {{ chipAll.bd }};">All</button>
+            <button onClick="{{ setHealthy }}" style="height:38px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;background:{{ chipH.bg }};color:{{ chipH.fg }};border:1.5px solid {{ chipH.bd }};">Healthy</button>
+            <button onClick="{{ setModerate }}" style="height:38px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;background:{{ chipM.bg }};color:{{ chipM.fg }};border:1.5px solid {{ chipM.bd }};">Moderate</button>
+            <button onClick="{{ setUnhealthy }}" style="height:38px;padding:0 16px;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;background:{{ chipU.bg }};color:{{ chipU.fg }};border:1.5px solid {{ chipU.bd }};">Unhealthy</button>
+          </div>
+          <button onClick="{{ closeSheet }}" style="width:100%;height:54px;border-radius:15px;background:var(--ns-brand);border:none;color:var(--ns-on-brand);font-size:16px;font-weight:700;cursor:pointer;box-shadow:0 8px 18px rgba(37,111,237,.26);">Show {{ filteredCount }} results</button>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- ============ ADD PRODUCT SHEET ============ -->
+      <sc-if value="{{ showAddSheet }}" hint-placeholder-val="{{ false }}">
+      <div style="position:absolute;inset:0;z-index:80;">
+        <div onClick="{{ closeAddProduct }}" style="position:absolute;inset:0;background:rgba(10,14,22,.5);"></div>
+        <div data-ns-scroll="1" style="position:absolute;left:0;right:0;bottom:0;max-height:88%;overflow-y:auto;background:var(--ns-card);border-radius:28px 28px 0 0;padding:10px 22px 28px;box-shadow:0 -8px 40px rgba(10,14,22,.3);animation:nsRise .25s ease;">
+          <div style="width:42px;height:5px;border-radius:999px;background:var(--ns-line-2);margin:0 auto 16px;"></div>
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;"><div style="font-size:18px;font-weight:800;color:var(--ns-ink);letter-spacing:-.01em;">Add product</div><button onClick="{{ closeAddProduct }}" style="width:32px;height:32px;border-radius:50%;background:var(--ns-card-2);border:none;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--ns-ink-2);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+          <div style="display:flex;flex-direction:column;gap:13px;">
+            <div><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:6px;">Product name</div><div style="height:50px;border-radius:13px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 14px;color:var(--ns-ink-3);font-size:14px;">e.g. Britannia Marie Gold</div></div>
+            <div style="display:flex;gap:11px;">
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:6px;">Barcode</div><div style="height:50px;border-radius:13px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 14px;color:var(--ns-ink-3);font-size:14px;">890…</div></div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:6px;">Brand</div><div style="height:50px;border-radius:13px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 14px;color:var(--ns-ink-3);font-size:14px;">Brand</div></div>
+            </div>
+            <div><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:6px;">Category</div>
+              <div style="display:flex;gap:8px;"><div style="height:38px;padding:0 16px;border-radius:999px;display:flex;align-items:center;font-size:13px;font-weight:700;background:var(--ns-brand);color:var(--ns-on-brand);">Food</div><div style="height:38px;padding:0 16px;border-radius:999px;display:flex;align-items:center;font-size:13px;font-weight:600;background:var(--ns-card);color:var(--ns-ink-2);border:1.5px solid var(--ns-line-2);">Beverage</div><div style="height:38px;padding:0 16px;border-radius:999px;display:flex;align-items:center;font-size:13px;font-weight:600;background:var(--ns-card);color:var(--ns-ink-2);border:1.5px solid var(--ns-line-2);">Snack</div></div>
+            </div>
+            <div style="font-size:12px;font-weight:700;color:var(--ns-ink-3);letter-spacing:.06em;margin-top:4px;">NUTRITION · PER 100G</div>
+            <div style="display:flex;gap:11px;">
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:6px;">Energy</div><div style="height:50px;border-radius:13px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 14px;color:var(--ns-ink-3);font-size:14px;">kcal</div></div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:6px;">Sugar</div><div style="height:50px;border-radius:13px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 14px;color:var(--ns-ink-3);font-size:14px;">g</div></div>
+              <div style="flex:1;"><div style="font-size:13px;font-weight:600;color:var(--ns-ink-2);margin-bottom:6px;">Sodium</div><div style="height:50px;border-radius:13px;border:1.5px solid var(--ns-line-2);background:var(--ns-card);display:flex;align-items:center;padding:0 14px;color:var(--ns-ink-3);font-size:14px;">g</div></div>
+            </div>
+            <button onClick="{{ closeAddProduct }}" style="width:100%;height:54px;border-radius:15px;background:var(--ns-brand);border:none;color:var(--ns-on-brand);font-size:16px;font-weight:700;cursor:pointer;margin-top:6px;box-shadow:0 8px 18px rgba(37,111,237,.26);">Add product</button>
+          </div>
+        </div>
+      </div>
+      </sc-if>
+
+      <!-- home indicator -->
+      <div style="position:absolute;bottom:7px;left:50%;transform:translateX(-50%);width:128px;height:5px;border-radius:999px;background:var(--bar,var(--ns-ink));opacity:.28;z-index:70;"></div>
+    </div>
+  </div>
+
+  <!-- theme toggle (outside phone) -->
+  <button onClick="{{ toggleTheme }}" style="flex:none;width:46px;height:46px;border-radius:14px;background:var(--ns-card);border:1px solid var(--ns-line);box-shadow:var(--shadow-card);display:flex;align-items:center;justify-content:center;color:var(--ns-ink);cursor:pointer;align-self:flex-start;margin-top:20px;">{{ themeIcon }}</button>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:470,&quot;height&quot;:900},&quot;theme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;light&quot;,&quot;dark&quot;],&quot;default&quot;:&quot;light&quot;,&quot;tsType&quot;:&quot;'light'|'dark'&quot;},&quot;startScreen&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;splash&quot;,&quot;onboard&quot;,&quot;auth&quot;,&quot;home&quot;,&quot;scanner&quot;,&quot;result&quot;,&quot;score&quot;,&quot;recs&quot;,&quot;history&quot;,&quot;insights&quot;,&quot;reports&quot;,&quot;alerts&quot;,&quot;bmi&quot;,&quot;calorie&quot;,&quot;editprofile&quot;,&quot;changepw&quot;,&quot;profile&quot;,&quot;settings&quot;,&quot;admin&quot;],&quot;default&quot;:&quot;splash&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  constructor(props){
+    super(props);
+    this.state = { screen:'splash', selected:'lays', filter:'all', sort:'recent', sheetOpen:false, addOpen:false, onbStep:0, authMode:'login', adminTab:'dashboard', theme:'light', scanMode:'barcode' };
+    this.ONB = [
+      { col:'var(--ns-brand)', soft:'var(--ns-brand-soft)', glyph:'M3 7V5a2 2 0 0 1 2-2h2M17 3h2a2 2 0 0 1 2 2v2M21 17v2a2 2 0 0 1-2 2h-2M7 21H5a2 2 0 0 1-2-2v-2 M7 12h10', title:'Scan any packet', body:'Point your camera at a barcode or nutrition label — NutriScan reads it instantly.' },
+      { col:'var(--good)', soft:'var(--good-soft)', glyph:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M9 12l2 2 4-4', title:'Know if it is healthy', body:'Get a clear 0–10 health score with traffic-light ratings for sugar, salt, fat and more.' },
+      { col:'var(--caution)', soft:'var(--caution-soft)', glyph:'M3 3v18h18 M7 14v3 M12 9v8 M17 6v11', title:'Track and improve', body:'See your habits over time and get simple swaps to eat a little smarter each week.' }
+    ];
+    this.RAW = {
+      lays:{name:"Lay's Classic",brand:'Potato chips',serving:'30g pack',src:'Barcode',av:{bg:'#FDE5C8',fg:'#B45309',t:'L'},n:{energy:536,protein:7,sugar:1.3,fat:35,satfat:9.5,sodium:0.6,fiber:5}},
+      oats:{name:'Quaker Oats',brand:'Whole grain',serving:'40g',src:'Barcode',av:{bg:'#DDF3E6',fg:'#047857',t:'Q'},n:{energy:379,protein:13,sugar:1,fat:8,satfat:1.5,sodium:0.02,fiber:10}},
+      butter:{name:'Amul Butter',brand:'Dairy',serving:'10g',src:'Barcode',av:{bg:'#FDEBD0',fg:'#C2410C',t:'A'},n:{energy:720,protein:0.5,sugar:0,fat:80,satfat:51,sodium:0.7,fiber:0}},
+      maggi:{name:'Maggi Noodles',brand:'Instant',serving:'70g cake',src:'OCR',av:{bg:'#FDE2C0',fg:'#B45309',t:'M'},n:{energy:402,protein:9,sugar:3,fat:15,satfat:8,sodium:1.1,fiber:3}},
+      corn:{name:"Kellogg's Corn Flakes",brand:'Cereal',serving:'30g',src:'Barcode',av:{bg:'#FCEAC2',fg:'#B45309',t:'K'},n:{energy:378,protein:7,sugar:8,fat:0.9,satfat:0.2,sodium:0.5,fiber:3}},
+      bar:{name:'Whey Protein Bar',brand:'Snack',serving:'45g bar',src:'Barcode',av:{bg:'#E3E9FB',fg:'#1E50C8',t:'P'},n:{energy:350,protein:20,sugar:6,fat:11,satfat:3,sodium:0.3,fiber:7}},
+      almond:{name:'Roasted Almonds',brand:'Dry fruit',serving:'28g',src:'OCR',av:{bg:'#EFE3D2',fg:'#8A5A2B',t:'A'},n:{energy:579,protein:21,sugar:4,fat:50,satfat:3.7,sodium:0.001,fiber:12}},
+      juice:{name:'Mixed Fruit Juice',brand:'Beverage',serving:'200ml',src:'Barcode',av:{bg:'#FAD9E0',fg:'#BE185D',t:'J'},n:{energy:54,protein:0.2,sugar:11,fat:0,satfat:0,sodium:0.01,fiber:0.2}}
+    };
+    this.SCANS = [
+      {key:'lays',group:'Today',time:'10:30 AM'},
+      {key:'bar',group:'Today',time:'9:05 AM'},
+      {key:'corn',group:'Yesterday',time:'8:20 AM'},
+      {key:'butter',group:'Yesterday',time:'7:45 AM'},
+      {key:'oats',group:'12 May',time:'8:10 AM'},
+      {key:'maggi',group:'12 May',time:'1:20 PM'},
+      {key:'juice',group:'11 May',time:'6:30 PM'},
+      {key:'almond',group:'11 May',time:'4:15 PM'}
+    ];
+    const tc = (t)=> t==='bad'?{col:'var(--bad)',soft:'var(--bad-soft)'} : t==='caution'?{col:'var(--caution)',soft:'var(--caution-soft)'} : t==='good'?{col:'var(--good)',soft:'var(--good-soft)'} : {col:'var(--ns-brand)',soft:'var(--ns-brand-soft)'};
+    const G = {
+      alert:'M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0Z M12 9v4 M12 17h.01',
+      drop:'M12 3s6 6.6 6 11a6 6 0 0 1-12 0c0-4.4 6-11 6-11z',
+      clock:'M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18z M12 7v5l3 2',
+      award:'M12 3a5 5 0 1 0 0 10 5 5 0 0 0 0-10z M8.2 12 7 21l5-3 5 3-1.2-9',
+      file:'M14 3v4a1 1 0 0 0 1 1h4 M5 8V5a2 2 0 0 1 2-2h7l5 5v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z'
+    };
+    const mkA = (tone,glyph,title,msg,time,unread)=>{ const c=tc(tone); return {col:c.col,soft:c.soft,glyph:G[glyph],title,msg,time,cardBg:'var(--ns-card)',cardBd:'var(--ns-line)',dot:unread?c.col:'transparent'}; };
+    this.ALERTS = [
+      mkA('bad','alert','High sodium detected','The Maggi Noodles you scanned is high in sodium (1.1 g/100g) — go easy on these.','2m',true),
+      mkA('bad','drop','High sugar warning','3 of your last 10 scans were high in sugar. Try a lower-sugar swap today.','1h',true),
+      mkA('caution','clock','Expiry reminder','Your Amul Butter is set to expire in 3 days.','5h',false),
+      mkA('good','award','Healthy streak','You have made 6 healthy picks this week. Keep it going.','1d',false),
+      mkA('brand','file','Weekly report ready','Your nutrition summary for 6 – 12 May is ready to view.','2d',false)
+    ];
+  }
+  componentDidMount(){
+    const p = this.props || {};
+    this.setState({ screen: p.startScreen || 'splash', theme: p.theme || 'light' });
+  }
+  go(s){ this.setState({screen:s}); this._top(); }
+  _top(){ setTimeout(()=>{ try{ document.querySelectorAll('[data-ns-scroll]').forEach(e=>e.scrollTop=0); }catch(e){} }, 30); }
+  openProduct(k){ this.setState({selected:k, screen:'result'}); this._top(); }
+  toggleTheme(){ this.setState(s=>({theme: s.theme==='dark'?'light':'dark'})); }
+  setFilter(f){ this.setState({filter:f}); }
+
+  rSugar(v){ return v<=5?'good':v<=22.5?'caution':'bad'; }
+  rSat(v){ return v<=1.5?'good':v<=5?'caution':'bad'; }
+  rSod(v){ return v<=0.12?'good':v<=0.6?'caution':'bad'; }
+  rEn(v){ return v<=80?'good':v<=280?'caution':'bad'; }
+  rPro(v){ return v>=8?'good':v>=4?'caution':'bad'; }
+  rFib(v){ return v>=5?'good':v>=2?'caution':'bad'; }
+  col(r){ return r==='good'?'var(--good)':r==='caution'?'var(--caution)':'var(--bad)'; }
+  soft(r){ return r==='good'?'var(--good-soft)':r==='caution'?'var(--caution-soft)':'var(--bad-soft)'; }
+
+  analyze(n){
+    const rs = { sugar:this.rSugar(n.sugar), satfat:this.rSat(n.satfat), sodium:this.rSod(n.sodium), energy:this.rEn(n.energy), protein:this.rPro(n.protein), fiber:this.rFib(n.fiber) };
+    const pen = {good:0,caution:-1,bad:-2}; const bon = {good:1,caution:0.5,bad:0};
+    let s = 10 + pen[rs.sugar] + pen[rs.satfat] + pen[rs.sodium] + pen[rs.energy] + bon[rs.protein] + bon[rs.fiber];
+    s = Math.max(0, Math.min(10, s)); s = Math.round(s*10)/10;
+    const band = s>=8?'healthy':s>=5?'moderate':'unhealthy';
+    return { score:s, band, rs };
+  }
+  nutrients(n, rs){
+    const W = {good:'34%',caution:'66%',bad:'100%'};
+    const penTag = {good:'Low',caution:'Moderate',bad:'High'};
+    const bonTag = {good:'Good',caution:'Okay',bad:'Low'};
+    const mk = (label, val, unit, r, bonus) => {
+      const tr = (bonus && r==='bad') ? 'caution' : r;
+      return { label, val:String(val), unit, dot:this.col(r), barW:W[r], barC:this.col(r), tag:(bonus?bonTag:penTag)[r], tagCol:this.col(tr), tagSoft:this.soft(tr) };
+    };
+    return [
+      mk('Energy', n.energy, ' kcal', rs.energy, false),
+      mk('Sugar', n.sugar, 'g', rs.sugar, false),
+      mk('Saturated fat', n.satfat, 'g', rs.satfat, false),
+      mk('Sodium', n.sodium, 'g', rs.sodium, false),
+      mk('Protein', n.protein, 'g', rs.protein, true),
+      mk('Fiber', n.fiber, 'g', rs.fiber, true)
+    ];
+  }
+  reasons(n, rs){
+    const out = [];
+    const push = (t,d,type,sev) => { const col = type==='good'?'var(--good)':(sev==='bad'?'var(--bad)':'var(--caution)'); out.push({t,d,col,soft:type==='good'?'var(--good-soft)':(sev==='bad'?'var(--bad-soft)':'var(--caution-soft)'),symbol:type==='good'?'\u2713':'!'}); };
+    if(rs.energy!=='good') push((rs.energy==='bad'?'High':'Moderate')+' in calories', n.energy+' kcal per 100g', 'warn', rs.energy);
+    if(rs.satfat!=='good') push((rs.satfat==='bad'?'High':'Some')+' saturated fat', n.satfat+'g per 100g', 'warn', rs.satfat);
+    if(rs.sodium!=='good') push((rs.sodium==='bad'?'High':'Moderate')+' sodium', n.sodium+'g per 100g', 'warn', rs.sodium);
+    if(rs.sugar!=='good') push((rs.sugar==='bad'?'High':'Some')+' sugar', n.sugar+'g per 100g', 'warn', rs.sugar);
+    if(rs.sugar==='good') push('Low in sugar', n.sugar+'g per 100g', 'good', 'good');
+    if(rs.sodium==='good') push('Low in sodium', n.sodium+'g per 100g', 'good', 'good');
+    if(rs.protein!=='bad') push((rs.protein==='good'?'Good':'Some')+' protein', n.protein+'g per 100g', 'good', 'good');
+    if(rs.fiber!=='bad') push((rs.fiber==='good'?'Good':'Some')+' fiber', n.fiber+'g per 100g', 'good', 'good');
+    return out;
+  }
+  build(key){
+    const p = this.RAW[key]; const a = this.analyze(p.n);
+    const bandCol = a.band==='healthy'?'var(--good)':a.band==='moderate'?'var(--caution)':'var(--bad)';
+    const bandSoft = a.band==='healthy'?'var(--good-soft)':a.band==='moderate'?'var(--caution-soft)':'var(--bad-soft)';
+    const bandLabel = a.band==='healthy'?'Healthy':a.band==='moderate'?'Moderate':'Unhealthy';
+    const bandMsg = a.band==='healthy'?'A solid everyday choice.':a.band==='moderate'?'Fine in moderation.':'Best as an occasional treat.';
+    return Object.assign({}, p, a, { key, bandCol, bandSoft, bandLabel, bandMsg, scorePct:a.score*10, nutrients:this.nutrients(p.n,a.rs), reasons:this.reasons(p.n,a.rs), open:()=>this.openProduct(key) });
+  }
+
+  renderVals(){
+    const theme = this.state.theme || 'light';
+    const screen = this.state.screen;
+    const sel = this.build(this.state.selected);
+    const scans = this.SCANS.map(s => Object.assign(this.build(s.key), { time:s.time, group:s.group, dateLine:s.group+' \u00b7 '+s.time }));
+    const filter = this.state.filter;
+    let filtered = filter==='all' ? scans : scans.filter(x => x.band===filter);
+    const sort = this.state.sort || 'recent';
+    if(sort==='high') filtered = filtered.slice().sort((a,b)=>b.score-a.score);
+    else if(sort==='low') filtered = filtered.slice().sort((a,b)=>a.score-b.score);
+    const recent = scans.slice(0,3);
+    const alts = ['oats','almond'].map(k => this.build(k));
+
+    const tipsFor = (b) => b==='unhealthy'
+      ? ['Treat this as an occasional snack, not a daily habit.','Pair it with water instead of a sugary drink.','Check for a baked or low-sodium version of this item.','Balance the day with a high-fibre, high-protein meal.']
+      : b==='moderate'
+      ? ['Keep your portion close to one serving.','Look for a variant with less added sugar.','Add fruit or nuts to round out the nutrition.','Drink water alongside to stay full.']
+      : ['Great pick — keep it in your regular rotation.','Pair with a protein source for a fuller meal.','Watch portion size to keep calories in check.','Mix up your choices for variety of nutrients.'];
+
+    const navCol = (t) => screen===t ? 'var(--ns-brand)' : 'var(--ns-ink-3)';
+    const chip = (active) => active
+      ? { bg:'var(--ns-brand)', fg:'var(--ns-on-brand)', bd:'var(--ns-brand)' }
+      : { bg:'var(--ns-card)', fg:'var(--ns-ink-2)', bd:'var(--ns-line-2)' };
+    const adTab = (active) => active
+      ? { bg:'var(--ns-brand)', fg:'var(--ns-on-brand)', bd:'var(--ns-brand)' }
+      : { bg:'var(--ns-card)', fg:'var(--ns-ink-2)', bd:'var(--ns-line)' };
+    const segOn = { bg:'var(--ns-card)', fg:'var(--ns-ink)', sh:'var(--shadow-card)' };
+    const segOff = { bg:'transparent', fg:'var(--ns-ink-3)', sh:'none' };
+    const loginActive = this.state.authMode==='login';
+    const labelMode = this.state.scanMode==='label';
+    const modeBar = labelMode ? {bg:'transparent',fg:'rgba(255,255,255,.7)'} : {bg:'#FFFFFF',fg:'#0A0E16'};
+    const modeLabel = labelMode ? {bg:'#FFFFFF',fg:'#0A0E16'} : {bg:'transparent',fg:'rgba(255,255,255,.7)'};
+
+    const chartH = [62,48,80,55,72,90,68];
+    const chartC = ['var(--caution)','var(--bad)','var(--good)','var(--caution)','var(--good)','var(--good)','var(--caution)'];
+    const chart = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map((d,i) => ({ d, h:chartH[i]+'%', col:chartC[i] }));
+    const aH = [40,65,52,78,90,60,72];
+    const adminChart = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map((d,i) => ({ d, h:aH[i]+'%' }));
+
+    const adminProductList = ['lays','bar','corn','butter','juice'].map(k => this.build(k));
+    const adminUsers = [
+      { name:'John Doe', email:'john.doe@email.com', in:'JD', status:'Active', col:'var(--good)', soft:'var(--good-soft)' },
+      { name:'Aisha Khan', email:'aisha.k@email.com', in:'AK', status:'Active', col:'var(--good)', soft:'var(--good-soft)' },
+      { name:'Rahul Verma', email:'rahul.v@email.com', in:'RV', status:'Blocked', col:'var(--bad)', soft:'var(--bad-soft)' },
+      { name:'Meera Nair', email:'meera.n@email.com', in:'MN', status:'Active', col:'var(--good)', soft:'var(--good-soft)' },
+      { name:'Sam Oliver', email:'sam.o@email.com', in:'SO', status:'Pending', col:'var(--caution)', soft:'var(--caution-soft)' }
+    ];
+
+    const isDark = theme==='dark';
+    const themeIcon = isDark
+      ? React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:2,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('circle',{cx:12,cy:12,r:4}),React.createElement('path',{d:'M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19'}))
+      : React.createElement('svg',{width:20,height:20,viewBox:'0 0 24 24',fill:'none',stroke:'currentColor',strokeWidth:2,strokeLinecap:'round',strokeLinejoin:'round'},React.createElement('path',{d:'M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z'}));
+
+    return {
+      theme,
+      barColor: (screen==='scanner' || screen==='splash') ? '#FFFFFF' : undefined,
+      isSplash:screen==='splash', isAuth:screen==='auth', isHome:screen==='home', isScanner:screen==='scanner',
+      isResult:screen==='result', isScore:screen==='score', isRecs:screen==='recs', isHistory:screen==='history',
+      isInsights:screen==='insights', isProfile:screen==='profile', isSettings:screen==='settings', isAdmin:screen==='admin',
+      isBmi:screen==='bmi', isCalorie:screen==='calorie', isReports:screen==='reports', isAlerts:screen==='alerts',
+      isEdit:screen==='editprofile', isChangePw:screen==='changepw', isOnboard:screen==='onboard',
+      onb: this.ONB[this.state.onbStep||0],
+      onbCta: (this.state.onbStep||0) >= 2 ? 'Get started' : 'Next',
+      onbDot0: { w:(this.state.onbStep||0)===0?'24px':'7px', bg:(this.state.onbStep||0)===0?'var(--ns-brand)':'var(--ns-line-2)' },
+      onbDot1: { w:(this.state.onbStep||0)===1?'24px':'7px', bg:(this.state.onbStep||0)===1?'var(--ns-brand)':'var(--ns-line-2)' },
+      onbDot2: { w:(this.state.onbStep||0)===2?'24px':'7px', bg:(this.state.onbStep||0)===2?'var(--ns-brand)':'var(--ns-line-2)' },
+      showAddSheet: this.state.addOpen && screen==='admin',
+      showFilterSheet: this.state.sheetOpen && screen==='history',
+      filteredCount: filtered.length,
+      sortRecentChk: sort==='recent' ? 'var(--ns-brand)' : 'transparent',
+      sortHighChk: sort==='high' ? 'var(--ns-brand)' : 'transparent',
+      sortLowChk: sort==='low' ? 'var(--ns-brand)' : 'transparent',
+      filterBtnBg: (filter!=='all'||sort!=='recent') ? 'var(--ns-brand)' : 'var(--ns-card)',
+      filterBtnFg: (filter!=='all'||sort!=='recent') ? 'var(--ns-on-brand)' : 'var(--ns-ink)',
+      filterBtnBd: (filter!=='all'||sort!=='recent') ? 'var(--ns-brand)' : 'var(--ns-line)',
+      alerts: this.ALERTS,
+      topUnhealthy: [...scans].sort((a,b)=>a.score-b.score).slice(0,3),
+      scanBarcode:!labelMode, scanLabel:labelMode, modeBar, modeLabel,
+      showNav: ['home','history','insights','profile'].indexOf(screen) !== -1,
+      navCol: { home:navCol('home'), history:navCol('history'), insights:navCol('insights'), profile:navCol('profile') },
+
+      sel, scans, filtered, recent, alts,
+      selUpper: sel.name.toUpperCase(),
+      tips: tipsFor(sel.band),
+      chart, adminChart, adminProductList, adminUsers,
+
+      authLogin:loginActive, authRegister:!loginActive,
+      authTitle: loginActive ? 'Welcome back' : 'Create account',
+      authSub: loginActive ? 'Log in to keep scanning smarter.' : 'Join NutriScan AI — it takes a minute.',
+      authCta: loginActive ? 'Log in' : 'Create account',
+      tabLoginBg:(loginActive?segOn:segOff).bg, tabLoginFg:(loginActive?segOn:segOff).fg, tabLoginSh:(loginActive?segOn:segOff).sh,
+      tabRegBg:(!loginActive?segOn:segOff).bg, tabRegFg:(!loginActive?segOn:segOff).fg, tabRegSh:(!loginActive?segOn:segOff).sh,
+
+      chipAll:chip(filter==='all'), chipH:chip(filter==='healthy'), chipM:chip(filter==='moderate'), chipU:chip(filter==='unhealthy'),
+
+      adminDash:this.state.adminTab==='dashboard', adminProducts:this.state.adminTab==='products', adminUsersTab:this.state.adminTab==='users',
+      adTabDash:adTab(this.state.adminTab==='dashboard'), adTabProd:adTab(this.state.adminTab==='products'), adTabUsers:adTab(this.state.adminTab==='users'),
+
+      isDark, themeIcon,
+      themeLabel: isDark ? 'On' : 'Off',
+      darkTrack: isDark ? 'var(--ns-brand)' : 'var(--track)',
+      darkJustify: isDark ? 'flex-end' : 'flex-start',
+
+      go:(s)=>this.go(s), goSplash:()=>this.go('splash'), goAuth:()=>this.go('auth'), goHome:()=>this.go('home'),
+      goScanner:()=>this.go('scanner'), goResult:()=>this.go('result'), goScore:()=>this.go('score'), goRecs:()=>this.go('recs'),
+      goHistory:()=>this.go('history'), goInsights:()=>this.go('insights'), goProfile:()=>this.go('profile'),
+      goSettings:()=>this.go('settings'), goAdmin:()=>this.go('admin'),
+      scanToResult:()=>this.openProduct('lays'),
+      goBmi:()=>this.go('bmi'), goCalorie:()=>this.go('calorie'), goReports:()=>this.go('reports'), goAlerts:()=>this.go('alerts'),
+      goEditProfile:()=>this.go('editprofile'), goChangePw:()=>this.go('changepw'),
+      goOnboard:()=>this.setState({screen:'onboard', onbStep:0}),
+      onbNext:()=>{ const s=this.state.onbStep||0; if(s>=2) this.setState({screen:'auth'}); else this.setState({onbStep:s+1}); },
+      openAddProduct:()=>this.setState({addOpen:true}), closeAddProduct:()=>this.setState({addOpen:false}),
+      openSheet:()=>this.setState({sheetOpen:true}), closeSheet:()=>this.setState({sheetOpen:false}),
+      resetSheet:()=>this.setState({filter:'all',sort:'recent'}),
+      setSortRecent:()=>this.setState({sort:'recent'}), setSortHigh:()=>this.setState({sort:'high'}), setSortLow:()=>this.setState({sort:'low'}),
+      setBarcodeMode:()=>this.setState({scanMode:'barcode'}), setLabelMode:()=>this.setState({scanMode:'label'}),
+      scanShutter:()=>this.openProduct(this.state.scanMode==='label'?'maggi':'lays'),
+      setLogin:()=>this.setState({authMode:'login'}), setRegister:()=>this.setState({authMode:'register'}),
+      setAll:()=>this.setFilter('all'), setHealthy:()=>this.setFilter('healthy'), setModerate:()=>this.setFilter('moderate'), setUnhealthy:()=>this.setFilter('unhealthy'),
+      setAdminDash:()=>this.setState({adminTab:'dashboard'}), setAdminProducts:()=>this.setState({adminTab:'products'}), setAdminUsers:()=>this.setState({adminTab:'users'}),
+      toggleTheme:()=>this.toggleTheme()
+    };
+  }
+}
+</script>
+</body>
+</html>

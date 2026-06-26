@@ -1,0 +1,36 @@
+/* Plenty type scale — Plus Jakarta Sans. Mobile-first sizes.
+   Each role token bundles size + line-height + weight + tracking. */
+
+:root {
+  /* Font families (declared in fonts.css): --font-sans, --font-mono */
+
+  /* Weights */
+  --weight-regular:  400;
+  --weight-medium:   500;
+  --weight-semibold: 600;
+  --weight-bold:     700;
+  --weight-extra:    800;
+
+  /* Size ramp */
+  --text-display: 40px;
+  --text-h1:      32px;
+  --text-h2:      26px;
+  --text-h3:      21px;
+  --text-lg:      17px;
+  --text-body:    15px;
+  --text-sm:      14px;
+  --text-caption: 13px;
+  --text-overline:11px;
+
+  /* Line heights */
+  --leading-tight:   1.12;
+  --leading-snug:    1.28;
+  --leading-normal:  1.5;
+  --leading-relaxed: 1.62;
+
+  /* Tracking */
+  --tracking-tight:   -0.02em;
+  --tracking-normal:  0;
+  --tracking-wide:    0.04em;
+  --tracking-overline:0.10em;
+}

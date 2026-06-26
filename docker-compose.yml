@@ -1,0 +1,25 @@
+# Local MySQL for NutriScan backend.
+# Usage:  docker compose up -d
+# The backend's application.yml defaults line up with these credentials.
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: nutriscan-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nutriscan
+      MYSQL_USER: nutriscan
+      MYSQL_PASSWORD: nutriscan
+    ports:
+      - "3306:3306"
+    volumes:
+      - nutriscan-mysql-data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  nutriscan-mysql-data:

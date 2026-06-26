@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: nutriscan-backend
+  datasource:
+    # createDatabaseIfNotExist saves you from manually creating the schema on first run.
+    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3306}/${DB_NAME:nutriscan}?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: ${DB_USER:nutriscan}
+    password: ${DB_PASSWORD:nutriscan}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      # 'update' is fine for development. Switch to 'validate' + Flyway/Liquibase before production.
+      ddl-auto: ${JPA_DDL_AUTO:update}
+    open-in-view: false
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    default-property-inclusion: non_null
+
+server:
+  port: ${SERVER_PORT:8080}
+  error:
+    include-message: never
+    include-stacktrace: never
+
+# Application-specific configuration (consumed via @ConfigurationProperties in later builds).
+nutriscan:
+  open-food-facts:
+    base-url: ${OFF_BASE_URL:https://world.openfoodfacts.org}
+    user-agent: "NutriScan-AI/0.1 (solo-dev; +https://example.com)"
+    cache-ttl-hours: ${OFF_CACHE_TTL_HOURS:168}   # 7 days
+  security:
+    jwt:
+      # OVERRIDE in production via the JWT_SECRET env var. Must be >= 32 chars for HS256.
+      secret: ${JWT_SECRET:dev-only-secret-change-me-please-0123456789abcdef}
+      expiration-minutes: ${JWT_EXP_MINUTES:120}
+
+logging:
+  level:
+    com.nutriscan: INFO
+    org.hibernate.SQL: ${SQL_LOG_LEVEL:WARN}

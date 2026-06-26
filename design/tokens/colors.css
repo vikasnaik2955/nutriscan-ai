@@ -1,0 +1,131 @@
+/* Plenty color system — warm, trustworthy, community-driven.
+   Base palettes first, then semantic aliases. Light theme on :root;
+   structured so a [data-theme="dark"] scope can override the aliases later. */
+
+:root {
+  /* ---- Brand green: giving, freshness, abundance ---- */
+  --green-50:  #ECFBF1;
+  --green-100: #D1F4DD;
+  --green-200: #A6E9BF;
+  --green-300: #6FD89A;
+  --green-400: #3BBE76;
+  --green-500: #1F9D57; /* primary */
+  --green-600: #178049;
+  --green-700: #14653B;
+  --green-800: #135231;
+  --green-900: #0F4329;
+
+  /* ---- Food accent: warm orange ---- */
+  --orange-50:  #FEF3EA;
+  --orange-100: #FCE0CB;
+  --orange-200: #F8C79B;
+  --orange-300: #F6B27A;
+  --orange-400: #F09148;
+  --orange-500: #EA7317; /* food */
+  --orange-600: #C75D0E;
+  --orange-700: #9C4A0F;
+
+  /* ---- Clothes accent: calm teal ---- */
+  --teal-50:  #E8F7F8;
+  --teal-100: #C7EDF0;
+  --teal-200: #9CDEE3;
+  --teal-300: #6FCDD5;
+  --teal-400: #2FB1BC;
+  --teal-500: #0E9AA7; /* clothes */
+  --teal-600: #0A7B86;
+  --teal-700: #0A626B;
+
+  /* ---- Reward gold ---- */
+  --gold-300: #FBD982;
+  --gold-400: #F5B82E;
+  --gold-500: #E6A012;
+  --gold-600: #B97D08;
+
+  /* ---- Warm neutrals ---- */
+  --neutral-0:   #FFFFFF;
+  --neutral-50:  #FAF8F5;
+  --neutral-100: #F2EFEA;
+  --neutral-200: #E6E1DA;
+  --neutral-300: #D2CBC1;
+  --neutral-400: #ABA194;
+  --neutral-500: #82776A;
+  --neutral-600: #5F564B;
+  --neutral-700: #443E36;
+  --neutral-800: #2C2823;
+  --neutral-900: #1A1714;
+
+  /* ---- Functional hues ---- */
+  --red-500:    #DC4B3E;
+  --red-50:     #FBEBE9;
+  --amber-500:  #E6A012;
+  --amber-50:   #FCF3DD;
+  --blue-500:   #2F6FED;
+  --blue-50:    #E9F0FE;
+  --violet-500: #6D5BD0;
+  --violet-50:  #EEEBFA;
+
+  /* ================= Semantic aliases ================= */
+
+  /* Brand */
+  --brand:          var(--green-500);
+  --brand-strong:   var(--green-600);
+  --brand-soft:     var(--green-50);
+  --brand-on:       #FFFFFF;
+
+  /* Category accents */
+  --food:        var(--orange-500);
+  --food-soft:   var(--orange-50);
+  --food-on:     #FFFFFF;
+  --clothes:      var(--teal-500);
+  --clothes-soft: var(--teal-50);
+  --clothes-on:   #FFFFFF;
+
+  --reward:      var(--gold-500);
+  --reward-soft: #FBF1D6;
+
+  /* Text */
+  --text-primary:   var(--neutral-900);
+  --text-secondary: var(--neutral-600);
+  --text-muted:     var(--neutral-500);
+  --text-disabled:  var(--neutral-400);
+  --text-on-brand:  #FFFFFF;
+  --text-link:      var(--green-600);
+
+  /* Surfaces */
+  --surface-page:    var(--neutral-50);
+  --surface-card:    var(--neutral-0);
+  --surface-sunken:  var(--neutral-100);
+  --surface-raised:  var(--neutral-0);
+  --surface-inverse: var(--neutral-900);
+  --surface-overlay: rgba(26, 23, 20, 0.48);
+
+  /* Borders */
+  --border-subtle: var(--neutral-200);
+  --border-strong: var(--neutral-300);
+  --border-brand:  var(--green-500);
+  --focus-ring:    rgba(31, 157, 87, 0.40);
+
+  /* Semantic states */
+  --success:      var(--green-500);
+  --success-soft: var(--green-50);
+  --warning:      var(--amber-500);
+  --warning-soft: var(--amber-50);
+  --error:        var(--red-500);
+  --error-soft:   var(--red-50);
+  --info:         var(--blue-500);
+  --info-soft:    var(--blue-50);
+
+  /* Status lifecycle: REQUESTED → ACCEPTED → PICKED_UP → DELIVERED → COMPLETED / CANCELLED */
+  --status-requested:       var(--blue-500);
+  --status-requested-soft:  var(--blue-50);
+  --status-accepted:        var(--violet-500);
+  --status-accepted-soft:   var(--violet-50);
+  --status-picked-up:       var(--orange-500);
+  --status-picked-up-soft:  var(--orange-50);
+  --status-delivered:       var(--teal-500);
+  --status-delivered-soft:  var(--teal-50);
+  --status-completed:       var(--green-600);
+  --status-completed-soft:  var(--green-50);
+  --status-cancelled:       var(--neutral-500);
+  --status-cancelled-soft:  var(--neutral-100);
+}
