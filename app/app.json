@@ -8,9 +8,11 @@
     "scheme": "nutriscan",
     "userInterfaceStyle": "light",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "bundleIdentifier": "com.nutriscan.app"
     },
     "android": {
+      "package": "com.nutriscan.app",
       "adaptiveIcon": {
         "backgroundColor": "#1F9D57",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
