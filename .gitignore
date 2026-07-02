@@ -39,4 +39,5 @@ Thumbs.db
 
 # Misc
 *.tmp
+*.tmp.*
 *.orig
