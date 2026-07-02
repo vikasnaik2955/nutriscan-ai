@@ -1,0 +1,47 @@
+package com.nutriscan.integration.openfoodfacts;
+
+import com.nutriscan.integration.openfoodfacts.OffResponse.OffNutriments;
+import com.nutriscan.integration.openfoodfacts.OffResponse.OffProduct;
+import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
+
+class OffMapperTest {
+
+    @Test
+    void convertsSodiumToSaltWhenSaltMissing() {
+        OffNutriments n = new OffNutriments(500.0, 6.0, 50.0, 2.0, 30.0, 12.0, 4.0, null, 0.4);
+        OffProduct p = new OffProduct("Chips", "Lay's, PepsiCo", "img", "30 g", "d", n);
+
+        var fetched = OffMapper.toFetched(p);
+
+        assertThat(fetched).isPresent();
+        assertThat(fetched.get().nutrition().getSalt()).isEqualTo(1.0); // 0.4 * 2.5
+        assertThat(fetched.get().brand()).isEqualTo("Lay's"); // first brand only
+        assertThat(fetched.get().name()).isEqualTo("Chips");
+    }
+
+    @Test
+    void prefersExplicitSaltOverSodium() {
+        OffNutriments n = new OffNutriments(null, null, null, null, null, null, null, 1.3, 0.4);
+        var fetched = OffMapper.toFetched(new OffProduct("X", "Brand", null, null, null, n));
+
+        assertThat(fetched).isPresent();
+        assertThat(fetched.get().nutrition().getSalt()).isEqualTo(1.3);
+    }
+
+    @Test
+    void returnsEmptyForNullOrEmptyProduct() {
+        assertThat(OffMapper.toFetched(null)).isEmpty();
+        assertThat(OffMapper.toFetched(new OffProduct(null, null, null, null, null, null))).isEmpty();
+    }
+
+    @Test
+    void blankFieldsBecomeNull() {
+        OffProduct p = new OffProduct("Name", "  ", "", null, null, null);
+        var fetched = OffMapper.toFetched(p);
+        assertThat(fetched).isPresent();
+        assertThat(fetched.get().brand()).isNull();
+        assertThat(fetched.get().imageUrl()).isNull();
+    }
+}
