@@ -36,6 +36,20 @@ nutriscan:
       # OVERRIDE in production via the JWT_SECRET env var. Must be >= 32 chars for HS256.
       secret: ${JWT_SECRET:dev-only-secret-change-me-please-0123456789abcdef}
       expiration-minutes: ${JWT_EXP_MINUTES:120}
+  # Health-score thresholds (per 100 g/ml). These mirror the defaults in code; tune freely.
+  health-score:
+    healthy-min: 8
+    moderate-min: 5
+    sugars-high: 22.5
+    sugars-moderate: 5
+    sat-fat-high: 5
+    sat-fat-moderate: 1.5
+    salt-high: 1.5
+    salt-moderate: 0.3
+    energy-high-kcal: 400
+    fiber-high: 6
+    fiber-moderate: 3
+    protein-high: 12
 
 logging:
   level:
